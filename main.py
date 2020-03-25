@@ -16,9 +16,9 @@ def hello():
 @app.route("/death/global")
 def death_global():
  	result = soup.find_all("div", {"class":"maincounter-number"})
- 	cases_list = []       
-    for res in result:
-        cases_list.append(res.text)
+ 	cases_list = []
+ 	for res in result:
+ 		cases_list.append(res.text)
     return "There are"+cases_list[0]+" Total cases out of which"+cases_list[1]+" have died and"+cases_list[2]+" have recovered ."
 
 @app.route("/death/country/<id>")
@@ -33,7 +33,7 @@ def death_country(id):
     
     cases_list = []
     for res in result:
-        cases_list.append(res.text)
+    	cases_list.append(res.text)
     return "In " +idu+" There are"+cases_list[0]+"Total cases out of which"+cases_list[1]+"are dead and"+cases_list[2]+"have already recovered . There are still "+active_cases+ " active cases ."
 
 if __name__ == '__main__':
