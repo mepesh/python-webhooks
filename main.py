@@ -13,10 +13,10 @@ app = Flask(__name__)
 def hello():
     return "Flask setup"
 
- @app.route("/death/global")
- def death_global():
-    cases_list = []    
-    result = soup.find_all("div", {"class":"maincounter-number"})
+@app.route("/death/global")
+def death_global():
+ 	result = soup.find_all("div", {"class":"maincounter-number"})
+ 	cases_list = []       
     for res in result:
         cases_list.append(res.text)
     return "There are"+cases_list[0]+" Total cases out of which"+cases_list[1]+" have died and"+cases_list[2]+" have recovered ."
