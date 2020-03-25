@@ -15,7 +15,7 @@ def hello():
 
  @app.route("/death/global")
  def death_global():
- 	result = soup.find_all("div", {"class":"maincounter-number"})
+    result = soup.find_all("div", {"class":"maincounter-number"})
     cases_list = []
     for res in result:
         cases_list.append(res.text)
