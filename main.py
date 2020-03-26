@@ -42,11 +42,15 @@ def death_country(id):
 def get_country_detail():
 		data = request.get_json(silent=True)
 		# print (data)
-		country = data['queryResult']['parameters']['geo-country-code']['name']
-		print (country)
+		query_text = data['queryResult']['queryText']
+		country_code = data['queryResult']['parameters']['geo-country-code']['alpha-2']
+		print (country_code)
 
-		if (country =="world"):
+		if(query_text=="Data World"):
 			response = death_global()
+
+		# if (country =="world"):
+		# 	response = death_global()
 		else:
 			response = death_country(country)
 		
