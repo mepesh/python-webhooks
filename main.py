@@ -31,7 +31,7 @@ def get_movie_detail():
     
     return jsonify(reply)
 
-@app.route('/get_country_detail/<id>', methods=['POST'])
+@app.route('/get_country_detail/country/<id>', methods=['POST'])
 def get_movie_detail(id):
     data = request.get_json(silent=True)
     response = "Could not get "+id+" country detail at the moment, please try again"
