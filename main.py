@@ -26,7 +26,9 @@ def death_global():
 def get_movie_detail():
     data = request.get_json(silent=True)
     print (data)
-    response = "Could not get country death detail at the moment, please try again"
+    country = data['queryResult']['parameters']['geo-country-code']['name']
+    print (country)
+    response = "Could not get " +country+ " death detail at the moment, please try again"
     
     reply = { "fulfillmentText": response }
     
