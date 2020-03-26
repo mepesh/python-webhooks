@@ -27,7 +27,24 @@ def get_movie_detail():
     data = request.get_json(silent=True)
     response = "Could not get country death detail at the moment, please try again"
     
-    reply = { "fulfillmentText": response }
+    reply = { 
+    "fulfillmentText": response 
+    "fulfillmentMessages": [
+    {
+      "card": {
+        "title": "card title",
+        "subtitle": "card text",
+        "imageUri": "https://example.com/images/example.png",
+        "buttons": [
+          {
+            "text": "button text",
+            "postback": "https://example.com/path/for/end-user/to/follow"
+          }
+        ]
+      }
+    }
+  ]
+    }
     
     return jsonify(reply)
 
