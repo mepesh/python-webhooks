@@ -18,7 +18,7 @@ def death_global():
 	page = requests.get("https://www.worldometers.info/coronavirus/")
 	soup = BeautifulSoup(page.content, 'html.parser')
 	result = soup.find_all("div", {"class":"maincounter-number"})
- 	cases_list = []
+	cases_list = []
  	for res in result:
  		cases_list.append(res.text)
 
@@ -50,11 +50,8 @@ def get_country_detail():
     else:
     	response = death_country(country)
     
-    reply = { "fulfillmentText": response }
-    
+    reply = { "fulfillmentText": response }    
     return jsonify(reply)
-
-# @app.route("/death/country/<id>")
 
 if __name__ == '__main__':
     app.run()
