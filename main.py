@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 import requests
 from bs4 import BeautifulSoup
 
@@ -22,10 +22,14 @@ def death_global():
 
  	return "There are"+cases_list[0]+" Total cases out of which"+cases_list[1]+" have died and"+cases_list[2]+" have recovered ."
 
-@app.route("/webhook", methods=['POST'])
-def webhook():
-    content = request.json
-    return jsonify({"speech":"Thank You for the feedback","displayText":"Thank You for the feedback","source":"Hotel Feedback System"})
+@app.route('/get_movie_detail', methods=['POST'])
+def get_movie_detail():
+    data = request.get_json(silent=True)
+    response = "Could not get movie detail at the moment, please try again"
+    
+    reply = { "fulfillmentText": response }
+    
+    return jsonify(reply)
 
 @app.route("/death/country/<id>")
 def death_country(id):
