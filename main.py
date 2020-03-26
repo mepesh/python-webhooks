@@ -25,20 +25,20 @@ def death_global():
 @app.route('/get_country_detail', methods=['POST'])
 def get_movie_detail():
     data = request.get_json(silent=True)
-    response = "Could not get country detail at the moment, please try again"
+    response = "Could not get country death detail at the moment, please try again"
     
     reply = { "fulfillmentText": response }
     
     return jsonify(reply)
 
-@app.route('/get_country_detail/country/<id>', methods=['POST'])
-def get_movie_detail(id):
-    data = request.get_json(silent=True)
-    response = "Could not get "+id+" country detail at the moment, please try again"
+# @app.route('/get_country_detail/country/<id>', methods=['POST'])
+# def get_movie_detail(id):
+#     data = request.get_json(silent=True)
+#     response = "Could not get "+id+" country detail at the moment, please try again"
     
-    reply = { "fulfillmentText": response }
+#     reply = { "fulfillmentText": response }
     
-    return jsonify(reply)
+#     return jsonify(reply)
 
 @app.route("/death/country/<id>")
 def death_country(id):
