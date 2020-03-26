@@ -32,7 +32,6 @@ def death_country(id):
     
     active = soup.find("div", {"class":"number-table-main"})
     active_cases = active.text
-    
     cases_list = []
     for res in result:
     	cases_list.append(res.text)
@@ -41,7 +40,7 @@ def death_country(id):
 
 @app.route('/get_country_detail', methods=['POST'])
 def get_country_detail():
-	data = request.get_json(silent=True)
+    data = request.get_json(silent=True)
     # print (data)
     country = data['queryResult']['parameters']['geo-country-code']['name']
     print (country)
