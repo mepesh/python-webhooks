@@ -43,7 +43,7 @@ def get_country_detail():
 		data = request.get_json(silent=True)
 		# print (data)
 		query_text = data['queryResult']['queryText']
-		country_code = data['queryResult']['parameters']['geo-country-code']['alpha-2']
+		country_code = data['queryResult']['parameters']['geo-country-code']['name']
 		print (country_code)
 
 		if(query_text=="Data World"):
