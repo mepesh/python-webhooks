@@ -22,10 +22,10 @@ def death_global():
 
  	return "There are"+cases_list[0]+" Total cases out of which"+cases_list[1]+" have died and"+cases_list[2]+" have recovered ."
 
-@app.route('/get_movie_detail', methods=['POST'])
+@app.route('/get_country_detail', methods=['POST'])
 def get_movie_detail():
     data = request.get_json(silent=True)
-    response = "Could not get movie detail at the moment, please try again"
+    response = "Could not get country detail at the moment, please try again"
     
     reply = { "fulfillmentText": response }
     
