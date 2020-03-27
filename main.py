@@ -13,16 +13,28 @@ app = Flask(__name__)
 def hello():
 		return "Flask setup"
 
-# @app.route("/death/global")
 def death_global():
 	page = requests.get("https://www.worldometers.info/coronavirus/")
 	soup = BeautifulSoup(page.content, 'html.parser')
+	
 	result = soup.find_all("div", {"class":"maincounter-number"})
 	cases_list = []
+
+	active = soup.find("div", {"class":"number-table-main"})
+	active_cases = active.text
+
 	for res in result:
 		cases_list.append(res.text)
 
-	return "There are"+cases_list[0]+" Total cases out of which"+cases_list[1]+" have died and"+cases_list[2]+" have recovered ."
+	return "There are"+cases_list[0]+" Total cases out of which"+cases_list[1]+" have died and"+cases_list[2]+" have recovered . There are still "+active_cases+" active cases."
+
+app.route("/death/global", methods=['POST'])
+def death_global():
+	page = requests.get("https://www.worldometers.info/coronavirus/")
+	response = death_global()
+	reply = { "fulfillmentText": response }    
+	return jsonify(reply)
+	
 
 def death_country(id):
 		idu = id.upper()
