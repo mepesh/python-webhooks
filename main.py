@@ -55,17 +55,18 @@ def death_country(id):
 def get_country_detail():
 		data = request.get_json(silent=True)
 		# print (data)
-		query_text = data['queryResult']['queryText']
+		# query_text = data['queryResult']['queryText']
 		# country_code = data['queryResult']['parameters']['geo-country-code']['name']
 		# print (country_code)
 
-		if(query_text=="Live Corona Data"):
-			response = death_global()
+		# if(query_text=="Live Corona Data"):
+		# 	response = death_global()
 
 		# if (country =="world"):
 		# 	response = death_global()
-		else:
-			response = death_country(country)
+		# else:
+		# 	response = death_country(country)
+		response = death_global()
 		
 		reply = { "fulfillmentText": response }    
 		return jsonify(reply)
