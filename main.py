@@ -29,7 +29,8 @@ def death_global():
 	return "There are"+cases_list[0]+" Total cases out of which"+cases_list[1]+" have died and"+cases_list[2]+" have recovered . There are still "+active_cases+" active cases."
 
 app.route("/death/global", methods=['POST'])
-def death_global():
+def death_global_api():
+	data = request.get_json(silent=True)
 	page = requests.get("https://www.worldometers.info/coronavirus/")
 	response = death_global()
 	reply = { "fulfillmentText": response }    
@@ -58,7 +59,7 @@ def get_country_detail():
 		country_code = data['queryResult']['parameters']['geo-country-code']['name']
 		print (country_code)
 
-		if(query_text=="Data World"):
+		if(query_text=="Live Corona Data"):
 			response = death_global()
 
 		# if (country =="world"):
