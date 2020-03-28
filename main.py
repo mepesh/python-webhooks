@@ -122,7 +122,7 @@ def get_country_detail():
         }
 
       ]
-      reply = { "fulfillmentText": response2 }
+      reply = { "fulfillmentMessages": response2 }
 
     else:
       response = death_global()
