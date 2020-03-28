@@ -65,6 +65,7 @@ def get_country_detail():
 
 			response = "In Nepal Total Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and 0 death. "
 			reply = { "fulfillmentText": response }
+			return jsonify(reply)
 
 		elif(intent == "news-nepal-int"):
 
@@ -121,6 +122,7 @@ def get_country_detail():
       }
     ]
     	reply ={"fulfillmentMessages" : response }
+    	return jsonify(reply)
 		# print (data)
 		# query_text = data['queryResult']['queryText']
 		# country_code = data['queryResult']['parameters']['geo-country-code']['name']
@@ -133,10 +135,11 @@ def get_country_detail():
 		# 	response = death_global()
 		else:
 			response = death_global()
-			reply = { "fulfillmentText": response } 
+			reply = { "fulfillmentText": response }   
+			return jsonify(reply)
+
 		
-		   
-		return jsonify(reply)
+		
 
 if __name__ == '__main__':
 		app.run()
