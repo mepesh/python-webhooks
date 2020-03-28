@@ -86,33 +86,12 @@ def get_country_detail():
         {
         "text":"Read Full Story",
         "postback":data1['url']
-        },
-        {
-        "type":"postback",
-        "title":"Symptoms",
-        "payload":"symptoms"
         }
-        ]
-        },
-        "platform":"FACEBOOK"
-        },
-        {
-          "text":{"text":["Dummy text"]}
-        },
-        {
-        "card":{
-        "subtitle":"Source "+data2['source']+" >>",
-        "imageUri":data2['image_url'],
-        "buttons":[
-        {
-        "text":"Read Full Story",
-        "postback":data2['url']
-        },
-        {
-        "type":"postback",
-        "title":"Live Nepal Data",
-        "payload":"live-nepal-data"
-        }
+        # {
+        # "type":"postback",
+        # "title":"Symptoms",
+        # "payload":"symptoms"
+        # }
         ]
         },
         "platform":"FACEBOOK"
@@ -120,6 +99,27 @@ def get_country_detail():
         {
           "text":{"text":["Dummy text"]}
         }
+        # {
+        # "card":{
+        # "subtitle":"Source "+data2['source']+" >>",
+        # "imageUri":data2['image_url'],
+        # "buttons":[
+        # {
+        # "text":"Read Full Story",
+        # "postback":data2['url']
+        # },
+        # {
+        # "type":"postback",
+        # "title":"Live Nepal Data",
+        # "payload":"live-nepal-data"
+        # }
+        # ]
+        # },
+        # "platform":"FACEBOOK"
+        # },
+        # {
+        #   "text":{"text":["Dummy text"]}
+        # }
 
       ]
       reply = { "fulfillmentMessages": response2 }
