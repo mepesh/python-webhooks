@@ -135,7 +135,7 @@ def get_country_detail():
                     ]
                   }
                 ]
-                "template_type": "generic"
+                "template_type": "generic",
               }
               "type": "template"
             }
