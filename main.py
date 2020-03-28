@@ -65,7 +65,7 @@ def get_country_detail():
 			data = todos['tested_total']
 
 			response = "In Nepal Total Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and 0 death. "
-			reply = { "fulfillmentText": response }
+			reply = { "fulfillmentMessages": response }
 			
 
 		elif(intent == "news-nepal-int"):
@@ -120,7 +120,7 @@ def get_country_detail():
         "platform": "FACEBOOK"
       }
     ]
-    	reply ={"fulfillmentMessages": response }
+    			reply ={"fulfillmentMessages": response }
     	
 		# print (data)
 		# query_text = data['queryResult']['queryText']
@@ -134,7 +134,7 @@ def get_country_detail():
 		# 	response = death_global()
 		else:
 			response = death_global()
-			reply = { "fulfillmentText": response }   
+			reply = { "fulfillmentMessages": response }   
 			
 
 		return jsonify(reply)
