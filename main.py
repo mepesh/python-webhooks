@@ -85,7 +85,7 @@ def get_country_detail():
         {
         "text":"Read Full Story",
         "postback":data1['url']
-        }
+        },
         {
         "type":"postback",
         "title":"Symptoms",
