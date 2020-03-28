@@ -120,7 +120,7 @@ def get_country_detail():
         },
         {
           "text":{"text":["Dummy text"]}
-        },  // third element here
+        },
         {
         "card":{
         "title":data3['title'],
