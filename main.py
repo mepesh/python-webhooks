@@ -75,6 +75,7 @@ def get_country_detail():
       data = news['data']
       data1 = data[0]
       data2 = data[1]
+      data3 = data[2]
       # response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
         "card":{
@@ -107,6 +108,28 @@ def get_country_detail():
         {
         "text":"Read Full Story",
         "postback":data2['url']
+        },
+        {
+        "type":"postback",
+        "title":"Live Nepal Data",
+        "payload":"live-nepal-data"
+        }
+        ]
+        },
+        "platform":"FACEBOOK"
+        },
+        {
+          "text":{"text":["Dummy text"]}
+        },  // third element here
+        {
+        "card":{
+        "title":data3['title'],
+        "subtitle":"Source "+data3['source']+" >>",
+        "imageUri":data3['image_url'],
+        "buttons":[
+        {
+        "text":"Read Full Story",
+        "postback":data3['url']
         },
         {
         "type":"postback",
