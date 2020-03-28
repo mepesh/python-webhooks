@@ -75,7 +75,7 @@ def get_country_detail():
       data = news['data']
       data1 = data[0]
       data2 = data[1]
-      response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
+      # response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
         "card":{
         "title":data1['title'],
@@ -100,6 +100,7 @@ def get_country_detail():
         },
         {
         "card":{
+        "title":data2['title'],
         "subtitle":"Source "+data2['source']+" >>",
         "imageUri":data2['image_url'],
         "buttons":[
@@ -142,7 +143,7 @@ def get_country_detail():
       # "platform":"FACEBOOK"
       # }        
       # ] 
-      reply = { "fulfillmentMessages": response3 }
+      reply = { "fulfillmentMessages": response2 }
 
     else:
       response = death_global()
