@@ -69,84 +69,32 @@ def get_country_detail():
       
 
     elif(intent == "news-nepal-int"):
-    	url = "https://nepalcorona.info/api/v1/news"
-    	response = requests.get(url)
-    	news = json.loads(response.text)
-    	data = news['data']
-    	data1 = data[0]
-    	data2 = data[1]
-    	data3 = data[2]
-    	response1 = [
-  {
-    "facebook": {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [
+      url = "https://nepalcorona.info/api/v1/news"
+      response = requests.get(url)
+      news = json.loads(response.text)
+      data = news['data']
+      data1 = data[0]
+      data2 = data[1]
+      data3 = data[2]
+      response1 = [{
+  "facebook":{
+    "attachment": {
+      "type": "template",
+      "payload": {
+         "template_type": "media",
+         "elements": [
             {
-              "title": "Here is your title!",
-              "image_url": "https://i.imgur.com/fFxXB2m.png",
-              "subtitle": "Here goes your subtitle.",
-              "default_action": {
-                "type": "web_url",
-                "url": "https://google.com",
-                "webview_height_ratio": "tall"
-              },
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "https://facebook.com",
-                  "title": "Link to Facebook"
-                },
-                {
-                  "type": "postback",
-                  "title": "Some Text",
-                  "payload": "Some Text"
-                }
-              ]
-            },
-            {
-              "title": "Here is your title!",
-              "image_url": "https://i.imgur.com/fFxXB2m.png",
-              "subtitle": "Here goes your subtitle.",
-              "default_action": {
-                "type": "web_url",
-                "url": "https://google.com",
-                "webview_height_ratio": "tall"
-              },
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "https://facebook.com",
-                  "title": "Link to Facebook"
-                },
-                {
-                  "type": "postback",
-                  "title": "Some Text",
-                  "payload": "Some Text"
-                }
-              ]
+               "media_type": "video",
+               "url": "https://www.facebook.com/AllTimeConspiracies/videos/199444947485193/"
             }
-          ]
-        }
+         ]
       }
-    }
+    }    
   }
-]
-      
-     reply = { "fulfillmentMessage": response1 }
-      
-    # print (data)
-    # query_text = data['queryResult']['queryText']
-    # country_code = data['queryResult']['parameters']['geo-country-code']['name']
-    # print (country_code)
+}
+      ]
+      reply = { "fulfillmentMessage": response1 }
 
-    # if(query_text=="Live Corona Data"):
-    #   response = death_global()
-
-    # if (country =="world"):
-    #   response = death_global()
     else:
       response = death_global()
       reply = { "fulfillmentText": response }   
@@ -158,8 +106,8 @@ def get_country_detail():
 if __name__ == '__main__':
     app.run()
 
-			
+      
 
-			
-			
-			
+      
+      
+      
