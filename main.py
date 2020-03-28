@@ -75,23 +75,43 @@ def get_country_detail():
       data = news['data']
       data1 = data[0]
       data2 = data[1]
-      data3 = data[2]
       response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
         "card":{
         "title":data1['title'],
-        "subtitle":"Click here to Read News",
+        "subtitle":"Source: "+data1['source']+" >>",
         "imageUri":data1['image_url'],
         "buttons":[
         {
         "text":"Read Full Story",
         "postback":data1['url']
         }
-        # {
-        # "type":"postback",
-        # "title":"Symptoms",
-        # "payload":"symptoms"
-        # }
+        {
+        "type":"postback",
+        "title":"Symptoms",
+        "payload":"symptoms"
+        }
+        ]
+        },
+        "platform":"FACEBOOK"
+        },
+        {
+          "text":{"text":["Dummy text"]}
+        },
+        {
+        "card":{
+        "subtitle":"Source "+data2['source']+" >>",
+        "imageUri":data2['image_url'],
+        "buttons":[
+        {
+        "text":"Read Full Story",
+        "postback":data2['url']
+        },
+        {
+        "type":"postback",
+        "title":"Live Nepal Data",
+        "payload":"live-nepal-data"
+        }
         ]
         },
         "platform":"FACEBOOK"
@@ -99,50 +119,29 @@ def get_country_detail():
         {
           "text":{"text":["Dummy text"]}
         }
-        # {
-        # "card":{
-        # "subtitle":"Source "+data2['source']+" >>",
-        # "imageUri":data2['image_url'],
-        # "buttons":[
-        # {
-        # "text":"Read Full Story",
-        # "postback":data2['url']
-        # },
-        # {
-        # "type":"postback",
-        # "title":"Live Nepal Data",
-        # "payload":"live-nepal-data"
-        # }
-        # ]
-        # },
-        # "platform":"FACEBOOK"
-        # },
-        # {
-        #   "text":{"text":["Dummy text"]}
-        # }
 
       ]
-      response3 =[{
-      "elements":[{
-      "title":"title",
-      "image_url":"https://i.imgur.com/fFxXB2m.png",
-      "subtitle":"Here goes your subtitle.",
-      "default_action": {
-      "type":"web_url",
-      "url": "https://google.com",
-      "webview_height_ratio": "tall"
-      },
-      "buttons":[
-      {
-      "type":"web_url",
-      "url":"https://facebook.com",
-      "title":"Link to Facebook"
-      }]      
-      }
-      ],
-      "platform":"FACEBOOK"
-      }        
-      ] 
+      # response3 =[{
+      # "elements":[{
+      # "title":"title",
+      # "image_url":"https://i.imgur.com/fFxXB2m.png",
+      # "subtitle":"Here goes your subtitle.",
+      # "default_action": {
+      # "type":"web_url",
+      # "url": "https://google.com",
+      # "webview_height_ratio": "tall"
+      # },
+      # "buttons":[
+      # {
+      # "type":"web_url",
+      # "url":"https://facebook.com",
+      # "title":"Link to Facebook"
+      # }]      
+      # }
+      # ],
+      # "platform":"FACEBOOK"
+      # }        
+      # ] 
       reply = { "fulfillmentMessages": response3 }
 
     else:
