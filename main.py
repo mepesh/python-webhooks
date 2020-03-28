@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-import requests
+import requests, json
 from bs4 import BeautifulSoup
 
 # page = requests.get("https://www.worldometers.info/coronavirus/")
