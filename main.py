@@ -77,72 +77,60 @@ def get_country_detail():
     	data2 = data[1]
     	data3 = data[2]
     	response1 = [
-      {
-        "payload": {
-          "facebook": {
-            "attachment": {
-              "payload": {
-                "elements": [
-                  {
-                    "image_url": data1['image_url'],
-                    "title": data1['title'],
-                    "subtitle": "Click here to view the full News.",
-                    "default_action": {
-                      "type": "web_url",
-                      "webview_height_ratio": "tall",
-                      "url": data1['url']
-                    },
-                    "buttons": [
-                      {
-                        "title": "Live Nepal Data",
-                        "payload": "live nepal data",
-                        "type": "postback"
-                      }
-                    ]
-                  },
-                  {
-                    "title": data2['title'],
-                    "subtitle": "Click here to view the full News.",
-                    "image_url": data2['image_url'],
-                    "default_action": {
-                      "type": "web_url",
-                      "webview_height_ratio": "tall",
-                      "url": data2['url']
-                    },
-                    "buttons": [
-                      {
-                        "title": "Self Isolation",
-                        "payload": "self isolation",
-                        "type": "postback"
-                      }
-                    ]
-                  },
-                  {
-                    "image_url": data3['image_url'],
-                    "title": data3['title'],
-                    "subtitle": "Click here to view the full News.",
-                    "default_action": {
-                      "type": "web_url",
-                      "webview_height_ratio": "tall",
-                      "url": data3['url']
-                    },
-                    "buttons": [
-                      {
-                        "title": "Symptoms",
-                        "payload": "symptoms",
-                        "type": "postback"
-                      }
-                    ]
-                  }
-                ]
-                "template_type": "generic",
-              }
-              "type": "template"
-            }
+      	{
+  "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"Here is your title!",
+            "image_url":"https://i.imgur.com/fFxXB2m.png",
+            "subtitle":"Here goes your subtitle.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://google.com",
+              "webview_height_ratio": "tall"
+            },
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://facebook.com",
+                "title":"Link to Facebook"
+              },{
+                "type":"postback",
+                "title":"Some Text",
+                "payload":"Some Text"
+              }              
+            ]      
+          },
+          {
+            "title":"Here is your title!",
+            "image_url":"https://i.imgur.com/fFxXB2m.png",
+            "subtitle":"Here goes your subtitle.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://google.com",
+              "webview_height_ratio": "tall"
+            },
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://facebook.com",
+                "title":"Link to Facebook"
+              },{
+                "type":"postback",
+                "title":"Some Text",
+                "payload":"Some Text"
+              }              
+            ]      
           }
-        },
-        "platform": "FACEBOOK"
+        ]      
       }
+    }
+  }
+}
     ]
       
       reply ={"fulfillmentMessages": response1 }
