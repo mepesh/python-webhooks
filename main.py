@@ -78,49 +78,48 @@ def get_country_detail():
       data3 = data[2]
       response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
-"card":{
-"title":data1['title'],
-"subtitle":"Click here to Read News",
-"imageUri":data1['image_url'],
-"buttons":[
-{
-"text":"Read Full Story",
-"postback":data1['url']
-},
-{
-"type":"postback",
-"title":"Symptoms",
-"payload":"symptoms"
-}
-]
-},
-"platform":"FACEBOOK"
-},
-{
-  "text":{"text":["Dummy text"]}
-},
-{
-"card":{
-"title":data2['title']",
-"subtitle":"Source "+data2['source']+" >>",
-"imageUri":data2['image_url'],
-"buttons":[
-{
-"text":"Read Full Story"
-"postback":data2['url']
-},
-{
-"type":"postback",
-"title":"Live Nepal Data",
-"payload":"live-nepal-data"
-}
-]
-},
-"platform":"FACEBOOK"
-},
-{
-  "text":{"text":["Dummy text"]}
-}
+        "card":{
+        "title":data1['title'],
+        "subtitle":"Click here to Read News",
+        "imageUri":data1['image_url'],
+        "buttons":[
+        {
+        "text":"Read Full Story",
+        "postback":data1['url']
+        },
+        {
+        "type":"postback",
+        "title":"Symptoms",
+        "payload":"symptoms"
+        }
+        ]
+        },
+        "platform":"FACEBOOK"
+        },
+        {
+          "text":{"text":["Dummy text"]}
+        },
+        {
+        "card":{
+        "subtitle":"Source "+data2['source']+" >>",
+        "imageUri":data2['image_url'],
+        "buttons":[
+        {
+        "text":"Read Full Story"
+        "postback":data2['url']
+        },
+        {
+        "type":"postback",
+        "title":"Live Nepal Data",
+        "payload":"live-nepal-data"
+        }
+        ]
+        },
+        "platform":"FACEBOOK"
+        },
+        {
+          "text":{"text":["Dummy text"]}
+        }
 
       ]
       reply = { "fulfillmentText": response2 }
