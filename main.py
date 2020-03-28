@@ -63,7 +63,7 @@ def get_country_detail():
 			todos = json.loads(response.text)
 			data = todos['tested_total']
 
-			response = "In nepal Toatl Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and Zero death. "
+			response = "In Nepal Total Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and 0 death. "
 
 		# print (data)
 		# query_text = data['queryResult']['queryText']
