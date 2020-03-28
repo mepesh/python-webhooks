@@ -76,7 +76,7 @@ def get_country_detail():
     	data1 = data[0]
     	data2 = data[1]
     	data3 = data[2]
-      response = [
+      response1 = [
       {
         "payload": {
           "facebook": {
@@ -144,7 +144,7 @@ def get_country_detail():
         "platform": "FACEBOOK"
       }
     ]
-      reply ={"fulfillmentMessages": response }
+      reply ={"fulfillmentMessages": response1 }
       
     # print (data)
     # query_text = data['queryResult']['queryText']
@@ -166,3 +166,5 @@ def get_country_detail():
 
 if __name__ == '__main__':
     app.run()
+
+			
