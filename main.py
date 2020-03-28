@@ -79,13 +79,18 @@ def get_country_detail():
       response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
 "card":{
-"title":"Test Card",
-"subtitle":"Click here",
-"imageUri":"https://i.imgur.com/fFxXB2m.png",
+"title":data1['title'],
+"subtitle":"Click here to Read News",
+"imageUri":data1['image_url'],
 "buttons":[
 {
-"text":"Learn More",
-"postback":"https://i.imgur.com/fFxXB2m.png"
+"text":"Read Full Story",
+"postback":data1['url']
+},
+{
+"type":"postback",
+"title":"Symptoms",
+"payload":"symptoms"
 }
 ]
 },
@@ -96,15 +101,18 @@ def get_country_detail():
 },
 {
 "card":{
-"title":"Test Card 2",
-"subtitle":"Click here",
-"imageUri":"https://i.imgur.com/fFxXB2m.png",
+"title":data2['title']",
+"subtitle":"Source "+data2['source']+" >>",
+"imageUri":data2['image_url'],
 "buttons":[
 {
-"text":"Learn More"
+"text":"Read Full Story"
+"postback":data2['url']
 },
 {
-"text":"https://i.imgur.com/fFxXB2m.png"
+"type":"postback",
+"title":"Live Nepal Data",
+"payload":"live-nepal-data"
 }
 ]
 },
