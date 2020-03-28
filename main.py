@@ -69,8 +69,7 @@ def get_country_detail():
 			
 
 		elif(intent == "news-nepal-int"):
-
-			"fulfillmentMessages": [
+			response = [
       {
         "payload": {
           "facebook": {
