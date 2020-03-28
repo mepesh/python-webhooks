@@ -76,7 +76,8 @@ def get_country_detail():
       data1 = data[0]
       data2 = data[1]
       data3 = data[2]
-      response1 = [{
+      resposne1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
+      response2 = [{
   "facebook":{
     "attachment": {
       "type": "template",
@@ -93,7 +94,7 @@ def get_country_detail():
   }
 }
       ]
-      reply = { "fulfillmentMessage": response1 }
+      reply = { "fulfillmentMessages": response2 }
 
     else:
       response = death_global()
