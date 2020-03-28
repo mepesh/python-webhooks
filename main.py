@@ -57,6 +57,7 @@ def get_country_detail():
 # 		response = death_global()
 		intent = data['queryResult']['intent']['displayName']
 		print (intent)
+
 		if(intent == "nepal data int"):
 			url = "https://nepalcorona.info/api/v1/data/nepal"
 			response = requests.get(url)
@@ -65,11 +66,10 @@ def get_country_detail():
 
 			response = "In Nepal Total Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and 0 death. "
 			reply = { "fulfillmentText": response }
-			return jsonify(reply)
+			
 
 		elif(intent == "news-nepal-int"):
 
-			response = "Getting the latest news from api"
 			"fulfillmentMessages": [
       {
         "payload": {
@@ -121,8 +121,8 @@ def get_country_detail():
         "platform": "FACEBOOK"
       }
     ]
-    	reply ={"fulfillmentMessages" : response }
-    	return jsonify(reply)
+    	reply ={"fulfillmentMessages": response }
+    	
 		# print (data)
 		# query_text = data['queryResult']['queryText']
 		# country_code = data['queryResult']['parameters']['geo-country-code']['name']
@@ -136,7 +136,9 @@ def get_country_detail():
 		else:
 			response = death_global()
 			reply = { "fulfillmentText": response }   
-			return jsonify(reply)
+			
+
+		return jsonify(reply)
 
 		
 		
