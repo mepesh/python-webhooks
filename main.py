@@ -134,7 +134,7 @@ def get_country_detail():
                     ],
                     "subtitle": "Click here to view the full News."
                   }
-                ],
+                ]
                 "template_type": "generic"
               },
               "type": "template"
