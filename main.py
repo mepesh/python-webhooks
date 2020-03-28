@@ -82,7 +82,7 @@ def get_country_detail():
     "attachment": {
       "type": "template",
       "payload": {
-        "template_type":"generic",
+      "template_type":"generic",
         "elements":[
            {
             "title":"Here is your title!",
@@ -92,24 +92,14 @@ def get_country_detail():
               "type": "web_url",
               "url": "https://google.com",
               "webview_height_ratio": "tall"
-            },
-            "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://facebook.com",
-                "title":"Link to Facebook"
-              },{
-                "type":"postback",
-                "title":"Some Text",
-                "payload":"Some Text"
-              }              
-            ]      
-          }
-        ]
+            }
+            }
+            ]
+
       }
     }
-  }
-}
+    }
+    }
       ]
       reply = { "fulfillmentText": response2 }
 
