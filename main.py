@@ -54,6 +54,11 @@ def death_country(id):
 @app.route('/get_country_detail', methods=['POST'])
 def get_country_detail():
 		data = request.get_json(silent=True)
+		intent = data['intent']['displayName']
+		print (intent)
+		if(intent == "nepal data int"):
+			response = "Calling API to get nepali Data"
+
 		# print (data)
 		# query_text = data['queryResult']['queryText']
 		# country_code = data['queryResult']['parameters']['geo-country-code']['name']
@@ -64,9 +69,8 @@ def get_country_detail():
 
 		# if (country =="world"):
 		# 	response = death_global()
-		# else:
-		# 	response = death_country(country)
-		response = death_global()
+		else:
+			response = death_country()
 		
 		reply = { "fulfillmentText": response }    
 		return jsonify(reply)
