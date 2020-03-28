@@ -58,7 +58,12 @@ def get_country_detail():
 		intent = data['queryResult']['intent']['displayName']
 		print (intent)
 		if(intent == "nepal data int"):
-			response = "Calling API to get nepali Data"
+			url = "https://nepalcorona.info/api/v1/data/nepal"
+			response = requests.get(url)
+			todos = json.loads(response.text)
+			data = todos['tested_total']
+
+			response = "In nepal Toatl Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and Zero death. "
 
 		# print (data)
 		# query_text = data['queryResult']['queryText']
