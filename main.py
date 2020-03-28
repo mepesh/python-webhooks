@@ -105,7 +105,7 @@ def get_country_detail():
         "imageUri":data2['image_url'],
         "buttons":[
         {
-        "text":"Read Full Story"
+        "text":"Read Full Story",
         "postback":data2['url']
         },
         {
