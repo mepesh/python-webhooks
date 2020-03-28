@@ -66,7 +66,60 @@ def get_country_detail():
 			response = "In Nepal Total Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and 0 death. "
 
 		elif(intent == "news-nepal-int"):
+
 			response = "Getting the latest news from api"
+			"fulfillmentMessages": [
+      {
+        "payload": {
+          "facebook": {
+            "attachment": {
+              "payload": {
+                "elements": [
+                  {
+                    "image_url": "https://assets-cdn-usad.kantipurdaily.com/uploads/source/news/kantipur/2020/third-party/corona-1712020080544-600x0.jpg",
+                    "title": "सिड्नीमा ४ नेपाली विद्यार्थीमा कोर",
+                    "default_action": {
+                      "type": "web_url",
+                      "webview_height_ratio": "tall",
+                      "url": "https://ekantipur.com/diaspora/2020/03/28/158537088723791264.html?fbclid=IwAR2MMgwa179CvFYdC6N3iq0QDIZe43yJRGFwV0gekHOyAFC62gdhIvmhi2g"
+                    },
+                    "buttons": [
+                      {
+                        "title": "Live Nepal Data",
+                        "payload": "live nepal data",
+                        "type": "postback"
+                      }
+                    ],
+                    "subtitle": "Here goes your subtitle."
+                  },
+                  {
+                    "title": "कर्णालीको क्वारेन्टाइन : एउटै बेडमा दुईजना, मास्कको सट्टा गलब",
+                    "default_action": {
+                      "type": "web_url",
+                      "webview_height_ratio": "tall",
+                      "url": "https://ekantipur.com/pradesh-6/2020/03/28/15853746010691926.html"
+                    },
+                    "buttons": [
+                      {
+                        "title": "Self Isolation",
+                        "payload": "self isolation",
+                        "type": "postback"
+                      }
+                    ],
+                    "subtitle": "Here goes your subtitle.",
+                    "image_url": "https://assets-cdn-usad.kantipurdaily.com/uploads/source/news/kantipur/2020/miscellaneous/karnali-2832020064857-600x0.jpg"
+                  }
+                ],
+                "template_type": "generic"
+              },
+              "type": "template"
+            }
+          }
+        },
+        "platform": "FACEBOOK"
+      }
+    ]
+    	reply ={"fulfillmentMessages" : response }
 		# print (data)
 		# query_text = data['queryResult']['queryText']
 		# country_code = data['queryResult']['parameters']['geo-country-code']['name']
@@ -80,7 +133,7 @@ def get_country_detail():
 		else:
 			response = death_global()
 		
-		reply = { "fulfillmentText": response }    
+		# reply = { "fulfillmentText": response }    
 		return jsonify(reply)
 
 if __name__ == '__main__':
