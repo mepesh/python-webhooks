@@ -76,7 +76,7 @@ def get_country_detail():
     	data1 = data[0]
     	data2 = data[1]
     	data3 = data[2]
-      response1 = [
+    	response1 = [
       {
         "payload": {
           "facebook": {
@@ -97,7 +97,7 @@ def get_country_detail():
                         "payload": "live nepal data",
                         "type": "postback"
                       }
-                    ],
+                    ]
                     "subtitle": "Click here to view the full News."
                   },
                   {
@@ -113,7 +113,7 @@ def get_country_detail():
                         "payload": "self isolation",
                         "type": "postback"
                       }
-                    ],
+                    ]
                     "subtitle": "Click here to view the full News.",
                     "image_url": data2['image_url']
                   },
@@ -131,12 +131,12 @@ def get_country_detail():
                         "payload": "symptoms",
                         "type": "postback"
                       }
-                    ],
+                    ]
                     "subtitle": "Click here to view the full News."
                   }
                 ]
                 "template_type": "generic"
-              },
+              }
               "type": "template"
             }
           }
@@ -144,6 +144,7 @@ def get_country_detail():
         "platform": "FACEBOOK"
       }
     ]
+      
       reply ={"fulfillmentMessages": response1 }
       
     # print (data)
