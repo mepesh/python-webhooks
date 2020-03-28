@@ -86,6 +86,7 @@ def get_country_detail():
                   {
                     "image_url": data1['image_url'],
                     "title": data1['title'],
+                    "subtitle": "Click here to view the full News.",
                     "default_action": {
                       "type": "web_url",
                       "webview_height_ratio": "tall",
@@ -98,10 +99,11 @@ def get_country_detail():
                         "type": "postback"
                       }
                     ]
-                    "subtitle": "Click here to view the full News."
                   },
                   {
                     "title": data2['title'],
+                    "subtitle": "Click here to view the full News.",
+                    "image_url": data2['image_url'],
                     "default_action": {
                       "type": "web_url",
                       "webview_height_ratio": "tall",
@@ -114,12 +116,11 @@ def get_country_detail():
                         "type": "postback"
                       }
                     ]
-                    "subtitle": "Click here to view the full News.",
-                    "image_url": data2['image_url']
                   },
                   {
                     "image_url": data3['image_url'],
                     "title": data3['title'],
+                    "subtitle": "Click here to view the full News.",
                     "default_action": {
                       "type": "web_url",
                       "webview_height_ratio": "tall",
@@ -132,12 +133,11 @@ def get_country_detail():
                         "type": "postback"
                       }
                     ]
-                    "subtitle": "Click here to view the full News."
                   }
                 ]
-                "template_type": "generic"
+                "template_type": "generic",
               }
-              "type": "template"
+              "type": "template",
             }
           }
         },
