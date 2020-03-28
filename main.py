@@ -133,7 +133,7 @@ def get_country_detail():
 }
     ]
       
-      reply ={"fulfillmentMessages": response1 }
+     reply ={"fulfillmentMessages": response1 }
       
     # print (data)
     # query_text = data['queryResult']['queryText']
