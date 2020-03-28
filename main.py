@@ -78,18 +78,42 @@ def get_country_detail():
       data3 = data[2]
       response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
-      "card": {
-        "title": "card title",
-        "subtitle": "card text",
-        "imageUri": "https://example.com/images/example.png",
-        "buttons": [
-          {
-            "text": "button text",
-            "postback": "https://example.com/path/for/end-user/to/follow"
-          }
-        ]
-      }
-    }
+"card":{
+"title":"Test Card",
+"subtitle":"Click here",
+"imageUri":"https://i.imgur.com/fFxXB2m.png",
+"buttons":[
+{
+"text":"Learn More",
+"postback":"https://i.imgur.com/fFxXB2m.png"
+}
+]
+},
+"platform":"FACEBOOK"
+},
+{
+  "text":{"text":["Dummy text"]}
+},
+{
+"card":{
+"title":"Test Card 2",
+"subtitle":"Click here",
+"imageUri":"https://i.imgur.com/fFxXB2m.png",
+"buttons":[
+{
+"text":"Learn More"
+},
+{
+"text":"https://i.imgur.com/fFxXB2m.png"
+}
+]
+},
+"platform":"FACEBOOK"
+},
+{
+  "text":{"text":["Dummy text"]}
+}
+
       ]
       reply = { "fulfillmentText": response2 }
 
