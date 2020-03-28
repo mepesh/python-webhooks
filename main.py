@@ -78,23 +78,40 @@ def get_country_detail():
       data3 = data[2]
       response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
-  "facebook":{
+  "facebook": {
     "attachment": {
       "type": "template",
       "payload": {
-         "template_type": "media",
-         "elements": [
-            {
-               "media_type": "video",
-               "url": "https://www.facebook.com/AllTimeConspiracies/videos/199444947485193/"
-            }
-         ]
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"Here is your title!",
+            "image_url":"https://i.imgur.com/fFxXB2m.png",
+            "subtitle":"Here goes your subtitle.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://google.com",
+              "webview_height_ratio": "tall"
+            },
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://facebook.com",
+                "title":"Link to Facebook"
+              },{
+                "type":"postback",
+                "title":"Some Text",
+                "payload":"Some Text"
+              }              
+            ]      
+          }
+        ]
       }
-    }    
+    }
   }
 }
       ]
-      reply = { "fulfillmentText": response1 }
+      reply = { "fulfillmentText": response2 }
 
     else:
       response = death_global()
