@@ -70,7 +70,7 @@ def get_country_detail():
 		# if (country =="world"):
 		# 	response = death_global()
 		else:
-			response = death_country()
+			response = death_global()
 		
 		reply = { "fulfillmentText": response }    
 		return jsonify(reply)
