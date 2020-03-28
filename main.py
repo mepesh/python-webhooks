@@ -122,7 +122,31 @@ def get_country_detail():
         # }
 
       ]
-      reply = { "fulfillmentMessages": response2 }
+      response3 =[{
+      "elements":[{
+      "title":"title",
+      "image_url":"https://i.imgur.com/fFxXB2m.png",
+      "subtitle":"Here goes your subtitle.",
+      "default_action": {
+      "type":"web_url",
+      "url": "https://google.com",
+      "webview_height_ratio": "tall"
+      },
+      "buttons":[
+      {
+      "type":"web_url",
+      "url":"https://facebook.com",
+      "title":"Link to Facebook"
+      }]      
+      }
+      ],
+      "platform":"FACEBOOK"
+      },
+      {
+        "text":{"text":["Dummy text"]}
+      }          
+      ] 
+      reply = { "fulfillmentMessages": response3 }
 
     else:
       response = death_global()
