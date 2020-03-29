@@ -142,28 +142,15 @@ def get_country_detail():
         }
 
       ]
-      # response3 =[{
-      # "elements":[{
-      # "title":"title",
-      # "image_url":"https://i.imgur.com/fFxXB2m.png",
-      # "subtitle":"Here goes your subtitle.",
-      # "default_action": {
-      # "type":"web_url",
-      # "url": "https://google.com",
-      # "webview_height_ratio": "tall"
-      # },
-      # "buttons":[
-      # {
-      # "type":"web_url",
-      # "url":"https://facebook.com",
-      # "title":"Link to Facebook"
-      # }]      
-      # }
-      # ],
-      # "platform":"FACEBOOK"
-      # }        
-      # ] 
+
       reply = { "fulfillmentMessages": response2 }
+
+    elif(intent == "help-people-int"):
+      name = data['queryResult']['parameters']['given-name']
+      item_required = data['queryResult']['parameters']['help-custom-ent']
+
+      response = "Hello "+name+" I know you are looking for "+item_required" We will contact you soon !"
+      reply = { "fulfillmentText": response }
 
     else:
       response = death_global()
