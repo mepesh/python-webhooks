@@ -110,9 +110,8 @@ def get_country_detail():
         "postback":data2['url']
         },
         {
-        "type":"postback",
-        "title":"Live Nepal Data",
-        "payload":"live-nepal-data"
+        "text":"Live Nepal Data",
+        "postback":"live-nepal-data"
         }
         ]
         },
@@ -132,9 +131,8 @@ def get_country_detail():
         "postback":data3['url']
         },
         {
-        "type":"postback",
-        "title":"Live Nepal Data",
-        "payload":"live-nepal-data"
+        "text":"Live Nepal Data",
+        "postback":"live-nepal-data"
         }
         ]
         },
