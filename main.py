@@ -88,9 +88,8 @@ def get_country_detail():
         "postback":data1['url']
         },
         {
-        "type":"postback",
-        "title":"Symptoms",
-        "payload":"symptoms"
+        "text":"Corona Symptoms",
+        "postback":"symptoms"
         }
         ]
         },
@@ -131,8 +130,8 @@ def get_country_detail():
         "postback":data3['url']
         },
         {
-        "text":"Live Nepal Data",
-        "postback":"live-nepal-data"
+        "text":"Self Isolation",
+        "postback":"self isolation"
         }
         ]
         },
