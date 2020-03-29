@@ -149,7 +149,7 @@ def get_country_detail():
       name = data['queryResult']['parameters']['given-name']
       item_required = data['queryResult']['parameters']['help-custom-ent']
 
-      response = "Hello "+name+" I know you are looking for "+item_required" We will contact you soon !"
+      response = "Hello "+name+" I know you are looking for "+item_required+" We will contact you soon !"
       reply = { "fulfillmentText": response }
 
     else:
