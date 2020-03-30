@@ -145,15 +145,17 @@ def get_country_detail():
 
       reply = { "fulfillmentMessages": response2 }
 
-    elif(intent == "help-people-int"):
+    elif(intent == "i need help main int - yes"):
       name = data['queryResult']['parameters']['given-name']
-      item_required = data['queryResult']['parameters']['help-custom-ent']
+      place = data['queryResult']['parameters']['any']
+      item_required = data['queryResult']['parameters']['help-ent']
       phone = data['queryResult']['parameters']['phone-number']
       print (name[0])
+      print (place[0])
       print (item_required[0])
-      print(intent)
+      print(phone[0])
 
-      response = "Hello "+name[0]+" so you are looking for "+item_required[0]+" We will contact you " +phone[0]+" soon !"
+      response = "Hello "+name[0]+" so you are looking for "+item_required[0]+"Your location is "+place[0]+" We will contact you " +phone[0]+" soon !"
       reply = { "fulfillmentText": response }
 
     else:
