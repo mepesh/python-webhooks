@@ -22,7 +22,6 @@ def sheets_row_writer(data_list):
   worksheet = client.open('corona-help-resource-management').sheet1
   worksheet.append_row(data_list) 
   print("Write complete")
-  values_list = worksheet.row_values(2)
 
 def death_global():
   page = requests.get("https://www.worldometers.info/coronavirus/")
@@ -168,7 +167,7 @@ def get_country_detail():
       # print(phone[0])
       ilist = [item_required[0],name[0],phone[0],phone[0]]
       for v in ilist:
-        print v
+        print (v)
 
 
       sheets_row_writer(ilist)
