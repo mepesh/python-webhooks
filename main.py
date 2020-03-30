@@ -1,9 +1,12 @@
 from flask import Flask, jsonify, request
 import requests, json
 from bs4 import BeautifulSoup
-
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 # page = requests.get("https://www.worldometers.info/coronavirus/")
 # soup = BeautifulSoup(page.content, 'html.parser')
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
 
 # Initialize application
 app = Flask(__name__)
@@ -12,6 +15,14 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     return "Flask setup"
+
+def sheets_row_writer(data_list):
+  credentials = ServiceAccountCredentials.from_json_keyfile_name('mechnepal-test-54c4387178d9.json', scope)
+  client = gspread.authorize(credentials)
+  worksheet = client.open('corona-help-resource-management').sheet1
+  worksheet.append_row(data_list) 
+  print("Write complete")
+  values_list = worksheet.row_values(2)
 
 def death_global():
   page = requests.get("https://www.worldometers.info/coronavirus/")
@@ -151,10 +162,16 @@ def get_country_detail():
       place = data['queryResult']['parameters']['name-place']
       item_required = data['queryResult']['parameters']['help-ent']
       phone = data['queryResult']['parameters']['phone-number']
-      print (name[0])
-      print (place[0])
-      print (item_required[0])
-      print(phone[0])
+      # print (name[0])
+      # print (place[0])
+      # print (item_required[0])
+      # print(phone[0])
+      ilist = [item_required[0],name[0],phone[0],phone[0]]
+      for v in ilist:
+        print v
+
+
+      sheets_row_writer(ilist)
 
       # response =" Info updated Will contact u asap !"
       response = "Hello "+name[0]+" so you are looking for "+item_required[0]+"Your location is "+place[0]+" We will contact you " +phone[0]+" soon !"
