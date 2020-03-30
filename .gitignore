@@ -2,6 +2,7 @@
 .flaskenv
 *.pyc
 *.pyo
+mechnepal-test-54c4387178d9.json
 env/
 env*
 dist/
