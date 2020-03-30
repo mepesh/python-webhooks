@@ -162,11 +162,7 @@ def get_country_detail():
       place = data['queryResult']['parameters']['name-place']
       item_required = data['queryResult']['parameters']['help-ent']
       phone = data['queryResult']['parameters']['phone-number']
-      # print (name[0])
-      # print (place[0])
-      # print (item_required[0])
-      # print(phone[0])
-      ilist = [item_required[0],name[0],phone[0],phone[0]]
+      ilist = [item_required[0],name[0],phone[0],place[0]]
       for v in ilist:
         print (v)
 
@@ -174,7 +170,7 @@ def get_country_detail():
       sheets_row_writer(ilist)
 
       # response =" Info updated Will contact u asap !"
-      response = "Hello "+name[0]+" so you are looking for "+item_required[0]+"Your location is "+place[0]+" We will contact you " +phone[0]+" soon !"
+      response = "Hello "+name[0]+" so you are looking for "+item_required[0]+" Your location is "+place[0]+" One of our Team will contact you @ " +phone[0]+" soon !"
       reply = { "fulfillmentText": response }
 
     else:
