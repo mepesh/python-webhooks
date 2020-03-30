@@ -153,7 +153,7 @@ def get_country_detail():
       print (item_required[0])
       print(intent)
 
-      response = "Hello "+name[0]+" so you are looking for "+item_required[0]+" We will contact you " +phone[]+ " soon !"
+      response = "Hello "+name[0]+" so you are looking for "+item_required[0]+" We will contact you " +phone[0]+" soon !"
       reply = { "fulfillmentText": response }
 
     else:
