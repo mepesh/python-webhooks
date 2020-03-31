@@ -178,7 +178,15 @@ def get_country_detail():
 
       response = [{
         {
-          "text":{"text":["We need to work  on this pendemic so diffenrlt We need to work  on this pendemic so diffenrlt We need to work  on this pendemic so diffenrlt "]}
+        "text": {
+          "text": [
+            "Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN ."
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+        {
+          "text":{"text":["Dummy text"]}
         },
         {
         "quickReplies": {
@@ -191,7 +199,6 @@ def get_country_detail():
         "platform": "FACEBOOK"
       },{
           "text":{"text":["Dummy text"]}
-        }
         }
         ]
       reply = { "fulfillmentMessages": response }
