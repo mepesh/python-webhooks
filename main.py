@@ -75,8 +75,26 @@ def get_country_detail():
       todos = json.loads(response.text)
       data = todos['tested_total']
 
-      response = "In Nepal Total Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and 0 death. "
-      reply = { "fulfillmentText": response }
+      response2 = "In Nepal Total Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and 0 death. "
+      response = [
+
+      {
+        "quickReplies": {
+          "title": response2,
+          "quickReplies": [
+            "World Corona Data",
+            "Online Risk Assement"
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+        {
+          "text":{"text":["Dummy text"]}
+        }
+        
+        ]
+
+      reply = { "fulfillmentMessages": response }
       
 
     elif(intent == "news-nepal-int"):
