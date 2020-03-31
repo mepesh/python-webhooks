@@ -241,7 +241,31 @@ def get_country_detail():
         
         ]
       reply = { "fulfillmentMessages": response }
+ 
+    elif(intent=="ora-temperature-int"):
+      ff = data['queryResult']['queryResult']['fulfillmentMessages']
+      print(ff)
 
+      response = [
+
+      {
+        "quickReplies": {
+          "title": Tell me About your Sex,
+          "quickReplies": [
+            "Male",
+            "Female",
+            "Others"
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+        {
+          "text":{"text":["Dummy text"]}
+        }
+        
+        ]
+
+      reply = { "fulfillmentMessages" : response }
 
     else:
       response = death_global()
