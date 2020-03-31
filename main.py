@@ -170,8 +170,26 @@ def get_country_detail():
       sheets_row_writer(ilist)
 
       # response =" Info updated Will contact u asap !"
-      response = "Hello "+name[0]+" so you are looking for "+item_required[0]+" Your location is "+place[0]+" One of our Team will contact you @ " +phone[0]+" soon !"
-      reply = { "fulfillmentText": response }
+      response2 = "Hello "+name[0]+" so you are looking for "+item_required[0]+" Your location is "+place[0]+" One of our Team will contact you @ " +phone[0]+" soon !"
+      response = [
+
+      {
+        "quickReplies": {
+          "title": response2,
+          "quickReplies": [
+            "Call a Doctor",
+            "Get Online Support"
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+        {
+          "text":{"text":["Dummy text"]}
+        }
+        
+        ]
+
+      reply = { "fulfillmentMessages": response }
 
     elif(intent=="test-custom-int"):
       print(intent)
