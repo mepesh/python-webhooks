@@ -242,31 +242,31 @@ def get_country_detail():
         ]
       reply = { "fulfillmentMessages": response }
  
-    elif(intent=="ora-temperature-int" || intent=="online-risk-assement"):
-      ff = data['queryResult']['queryResult']['fulfillmentMessages']
-      print(intent)
-      print(ff)
+    # elif(intent=="ora-temperature-int" || intent=="online-risk-assement"):
+    #   ff = data['queryResult']['queryResult']['fulfillmentMessages']
+    #   print(intent)
+    #   print(ff)
 
-      response = [
+    #   response = [
 
-      {
-        "quickReplies": {
-          "title": Tell me About your Sex,
-          "quickReplies": [
-            "Male",
-            "Female",
-            "Others"
-          ]
-        },
-        "platform": "FACEBOOK"
-      },
-        {
-          "text":{"text":["Dummy text"]}
-        }
+    #   {
+    #     "quickReplies": {
+    #       "title": Tell me About your Sex,
+    #       "quickReplies": [
+    #         "Male",
+    #         "Female",
+    #         "Others"
+    #       ]
+    #     },
+    #     "platform": "FACEBOOK"
+    #   },
+    #     {
+    #       "text":{"text":["Dummy text"]}
+    #     }
         
-        ]
+    #     ]
 
-      reply = { "fulfillmentMessages" : response }
+    #   reply = { "fulfillmentMessages" : response }
 
     else:
       response = death_global()
