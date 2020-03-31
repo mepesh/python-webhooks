@@ -242,7 +242,7 @@ def get_country_detail():
         ]
       reply = { "fulfillmentMessages": response }
  
-    elif(intent=="ora-temperature-int"):
+    elif(intent=="ora-temperature-int" || intent=="online-risk-assement"):
       ff = data['queryResult']['queryResult']['fulfillmentMessages']
       print(intent)
       print(ff)
