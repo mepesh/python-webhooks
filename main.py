@@ -185,9 +185,7 @@ def get_country_detail():
           ]
         },
         "platform": "FACEBOOK"
-      },{
-          "text":{"text":["Dummy text"]}
-        }
+      }
         }
         ]
       reply = { "fulfillmentMessages": response }
