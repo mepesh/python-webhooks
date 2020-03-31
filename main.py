@@ -251,7 +251,7 @@ def get_country_detail():
 
       {
         "quickReplies": {
-          "title": Tell me About your Sex,
+          "title": "Tell me About your Sex",
           "quickReplies": [
             "Male",
             "Female",
