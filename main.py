@@ -176,14 +176,15 @@ def get_country_detail():
     elif(intent=="test-custom-int"):
       print(intent)
 
-      response = [{"card":{
-        "title":data3['title'],
-        "subtitle":"Source "+data3['source']+" >>",
-        "imageUri":data3['image_url'],
+      response = [{
+      "card":{
+        "title":"data3['title']",
+        "subtitle":"Source ",
+        "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
         "buttons":[
         {
         "text":"Read Full Story",
-        "postback":data3['url']
+        "postback":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg"
         },
         {
         "text":"Self Isolation",
