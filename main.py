@@ -87,6 +87,7 @@ def get_country_detail():
       data1 = data[0]
       data2 = data[1]
       data3 = data[2]
+      response3 = "This is apple"
       # response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
         "card":{
@@ -154,7 +155,7 @@ def get_country_detail():
 
       ]
 
-      reply = { "fulfillmentMessages": response2 }
+      reply = { "fulfillmentMessages": response2 , "fulfillmentText": response3 }
 
     elif(intent == "i need help main int - yes"):
       print (intent)
