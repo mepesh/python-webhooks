@@ -176,18 +176,9 @@ def get_country_detail():
     elif(intent=="test-custom-int"):
       print(intent)
 
-      response = [{
-        {
-        "text": {
-          "text": [
-            "Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN ."
-          ]
-        },
-        "platform": "FACEBOOK"
-      },
-        {
+      response = [{{
         "quickReplies": {
-          "title": "More Video about Corona Prevention",
+          "title": "More Video about Corona Prevention Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN ",
           "quickReplies": [
             "Self Isolation",
             "Live Corona Data"
