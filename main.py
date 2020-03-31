@@ -176,7 +176,28 @@ def get_country_detail():
     elif(intent=="test-custom-int"):
       print(intent)
 
-      response = [{{
+      response = [{"card":{
+        "title":data3['title'],
+        "subtitle":"Source "+data3['source']+" >>",
+        "imageUri":data3['image_url'],
+        "buttons":[
+        {
+        "text":"Read Full Story",
+        "postback":data3['url']
+        },
+        {
+        "text":"Self Isolation",
+        "postback":"self isolation"
+        }
+        ]
+        },
+        "platform":"FACEBOOK"
+        },
+        {
+          "text":{"text":["Dummy text"]}
+        },
+
+      {
         "quickReplies": {
           "title": "More Video about Corona Prevention Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN ",
           "quickReplies": [
@@ -185,8 +206,11 @@ def get_country_detail():
           ]
         },
         "platform": "FACEBOOK"
-      }
+      },
+        {
+          "text":{"text":["Dummy text"]}
         }
+        
         ]
       reply = { "fulfillmentMessages": response }
 
