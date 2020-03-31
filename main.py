@@ -87,7 +87,6 @@ def get_country_detail():
       data1 = data[0]
       data2 = data[1]
       data3 = data[2]
-      response3 = "This is apple"
       # response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
         "card":{
@@ -155,7 +154,7 @@ def get_country_detail():
 
       ]
 
-      reply = { "fulfillmentMessages": response2 , "fulfillmentText": response3 }
+      reply = { "fulfillmentMessages": response2 }
 
     elif(intent == "i need help main int - yes"):
       print (intent)
@@ -173,6 +172,44 @@ def get_country_detail():
       # response =" Info updated Will contact u asap !"
       response = "Hello "+name[0]+" so you are looking for "+item_required[0]+" Your location is "+place[0]+" One of our Team will contact you @ " +phone[0]+" soon !"
       reply = { "fulfillmentText": response }
+
+    elif(intent=="test-custom-int"):
+
+      response = [{
+        "card":{
+        "title":data1['title'],
+        "subtitle":"Source: "+data1['source']+" >>",
+        "imageUri":data1['image_url'],
+        "buttons":[
+        {
+        "text":"Read Full Story",
+        "postback":data1['url']
+        },
+        {
+        "text":"Corona Symptoms",
+        "postback":"symptoms"
+        }
+        ]
+        },
+        "platform":"FACEBOOK"
+        },
+        {
+          "text":{"text":["Dummy text"]}
+        },{
+        "quickReplies": {
+          "title": "More Video about Corona Prevention",
+          "quickReplies": [
+            "Self Isolation",
+            "Live Corona Data"
+          ]
+        },
+        "platform": "FACEBOOK"
+      },{
+          "text":{"text":["Dummy text"]}
+        }
+        ]
+      reply = { "fulfillmentMessages": response }
+
 
     else:
       response = death_global()
