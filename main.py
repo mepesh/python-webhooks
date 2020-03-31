@@ -176,27 +176,18 @@ def get_country_detail():
     elif(intent=="test-custom-int"):
       print(intent)
 
-      response = [{
-      "card":{
-        "title":"data3['title']",
-        "subtitle":"Source ",
-        "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
-        "buttons":[
-        {
-        "text":"Read Full Story",
-        "postback":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg"
-        },
-        {
-        "text":"Self Isolation",
-        "postback":"self isolation"
-        }
-        ]
-        },
-        "platform":"FACEBOOK"
-        },
-        {
-          "text":{"text":["Dummy text"]}
-        },
+      response = [
+      # {
+      # "card":{
+      #   "title":"Death Total in Nepal",
+      #   "subtitle":"As of Now  ",
+      #   "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
+      #   },
+      #   "platform":"FACEBOOK"
+      #   },
+      #   {
+      #     "text":{"text":["Dummy text"]}
+      #   },
 
       {
         "quickReplies": {
