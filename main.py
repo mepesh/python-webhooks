@@ -200,6 +200,7 @@ def get_country_detail():
       },{
           "text":{"text":["Dummy text"]}
         }
+        }
         ]
       reply = { "fulfillmentMessages": response }
 
