@@ -275,9 +275,8 @@ def get_country_detail():
 
     elif(intent=="ora-temperature-int"):
       # ff = data['queryResult']['fulfillmentMessages']['card']['buttons']['text']
-      ff = data['messages']['buttons']['text']
-      print(intent)
-      print(ff[0])
+      print (data)
+      
       response = "Apple has been returned"
 
       reply = { "fulfillmentText": response }
