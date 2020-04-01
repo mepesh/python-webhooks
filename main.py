@@ -290,33 +290,33 @@ def get_country_detail():
     #   # response = "Your temperature is ",temp," !."
     #   print("temp inside ora-temperature-int")
     #   print(temp)
-    #   response2 = [{
-    #     "card":{
-    #     "title":"What is your Body Temperature",
-    #     "subtitle":"Give honest answer",
-    #     "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
-    #     "buttons":[
-    #     {
-    #     "text":"Male",
-    #     "postback":"ora-sex-int"
-    #     },
-    #     {
-    #     "text":"Female",
-    #     "postback":"ora-sex-int"
-    #     },
-    #     {
-    #     "text":"Others",
-    #     "payload":"ora-sex-int"
-    #     }
-    #     ]
-    #     },
-    #     "platform":"FACEBOOK"
-    #     },
-    #     {
-    #       "text":{"text":["Dummy text"]}
-    #     }
+      # response2 = [{
+      #   "card":{
+      #   "title":"What is your Body Temperature",
+      #   "subtitle":"Give honest answer",
+      #   "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
+      #   "buttons":[
+      #   {
+      #   "text":"Male",
+      #   "postback":"ora-sex-int"
+      #   },
+      #   {
+      #   "text":"Female",
+      #   "postback":"ora-sex-int"
+      #   },
+      #   {
+      #   "text":"Others",
+      #   "payload":"ora-sex-int"
+      #   }
+      #   ]
+      #   },
+      #   "platform":"FACEBOOK"
+      #   },
+      #   {
+      #     "text":{"text":["Dummy text"]}
+      #   }
         
-    #     ]
+      #   ]
 
 
 
@@ -326,21 +326,14 @@ def get_country_detail():
 
     # Find the sex from here
     elif(intent=="ora-sex-int" or intent=="ora-temperature-int"):
-      # global sex
-      # print(sex)
-      # ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
-      # if(ff=="Male"):
-      #   sex = 1
-      # elif(ff=="Female"):
-      #   sex=2
-      # else:
-      #   sex=3
-      
-      # print(temp)
-      # print(sex)
-      # response = "Your temperature is "+str(temp)+" and your sex is "+str(sex)+" ."
-      response="Return back string"
-      response2 = [{
+      if(intent=="ora-temperature-int"):
+        ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
+        if(ff=="Normal [98F - 98.6F]"):
+          temp=1
+        else:
+          temp=2
+        
+        response2 = [{
         "card":{
         "title":"What is your Body Temperature",
         "subtitle":"Give honest answer",
@@ -367,8 +360,23 @@ def get_country_detail():
         }
         
         ]
+        reply = { "fulfillmentMessages" : response2}
+        return jsonify(reply)
 
-      reply = { "fulfillmentText": response }
+      else:
+        ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
+        if(ff=="Male"):
+          sex=1
+        elif(ff="Female"):
+          sex=2
+        else:
+          sex=3
+
+        response = "The returened values are "+str(temp)+"."+str(sex)+"."
+        reply = { "fulfillmentText" : response}
+        return jsonify(reply)
+
+
     else:
       response = death_global()
       reply = { "fulfillmentText": response }   
