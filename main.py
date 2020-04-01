@@ -78,6 +78,7 @@ def get_country_detail():
       todos = json.loads(response.text)
       data = todos['tested_total']
       print(data)
+      print(type(data)) 
 
       response2 = "In Nepal Total Cases : ",todos['tested_total'], " among them ",todos["tested_negative"]," tested negative and only ",todos["tested_positive"]," tested positive and 0 death. "
       print (response2)
@@ -99,7 +100,7 @@ def get_country_detail():
         
         ]
 
-      reply = { "fulfillmentMessages": response }
+      reply = { "fulfillmentText": response2 }
       
 
     elif(intent == "news-nepal-int"):
