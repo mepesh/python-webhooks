@@ -325,7 +325,7 @@ def get_country_detail():
 
 
     # Find the sex from here
-    elif(intent=="ora-sex-int" || intent=="ora-temperature-int"):
+    elif(intent=="ora-sex-int" or intent=="ora-temperature-int"):
       # global sex
       # print(sex)
       # ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
