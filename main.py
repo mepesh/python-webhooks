@@ -318,6 +318,7 @@ def get_country_detail():
 
     # Find the sex from here
     elif(intent=="ora-sex-int"):
+      
       ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
       if(ff=="Male"):
         sex = 1
@@ -326,7 +327,9 @@ def get_country_detail():
       else:
         sex=3
       
-      response = "Your temperature is "+temp+" and your sex is "+sex+" ."
+      print(temp)
+      print(sex)
+      response = "Your temperature is ",temp," and your sex is ",sex," ."
       response2 = [{
         "card":{
         "title":"What is your Body Temperature",
