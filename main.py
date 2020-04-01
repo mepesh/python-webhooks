@@ -14,7 +14,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    initilize()
     return "Flask setup"
 
 def sheets_row_writer(data_list):
@@ -25,10 +24,10 @@ def sheets_row_writer(data_list):
   worksheet.append_row(data_list) 
   print("Write complete")
 
-def initilize():
-  print("nit")
-  temp=0
-  sex=0
+# def initilize():
+#   print("nit")
+#   temp=0
+#   sex=0
 
 def death_global():
   page = requests.get("https://www.worldometers.info/coronavirus/")
@@ -280,67 +279,67 @@ def get_country_detail():
 
       reply = { "fulfillmentMessages" : response }
 # Find the temperature from here
-    elif(intent=="ora-temperature-int"):
-      global temp
-      ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
-      if(ff=="Normal [98F - 98.6F]"):
-        temp = 1
-      else:
-        temp=2
+    # elif(intent=="ora-temperature-int"):
+    #   global temp 
+    #   ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
+    #   if(ff=="Normal [98F - 98.6F]"):
+    #     temp = 1
+    #   else:
+    #     temp=2
       
-      # response = "Your temperature is ",temp," !."
-      print("temp inside ora-temperature-int")
-      print(temp)
-      response2 = [{
-        "card":{
-        "title":"What is your Body Temperature",
-        "subtitle":"Give honest answer",
-        "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
-        "buttons":[
-        {
-        "text":"Male",
-        "postback":"ora-sex-int"
-        },
-        {
-        "text":"Female",
-        "postback":"ora-sex-int"
-        },
-        {
-        "text":"Others",
-        "payload":"ora-sex-int"
-        }
-        ]
-        },
-        "platform":"FACEBOOK"
-        },
-        {
-          "text":{"text":["Dummy text"]}
-        }
+    #   # response = "Your temperature is ",temp," !."
+    #   print("temp inside ora-temperature-int")
+    #   print(temp)
+    #   response2 = [{
+    #     "card":{
+    #     "title":"What is your Body Temperature",
+    #     "subtitle":"Give honest answer",
+    #     "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
+    #     "buttons":[
+    #     {
+    #     "text":"Male",
+    #     "postback":"ora-sex-int"
+    #     },
+    #     {
+    #     "text":"Female",
+    #     "postback":"ora-sex-int"
+    #     },
+    #     {
+    #     "text":"Others",
+    #     "payload":"ora-sex-int"
+    #     }
+    #     ]
+    #     },
+    #     "platform":"FACEBOOK"
+    #     },
+    #     {
+    #       "text":{"text":["Dummy text"]}
+    #     }
         
-        ]
+    #     ]
 
 
 
 
-      reply = { "fulfillmentMessages": response2 }
+    #   reply = { "fulfillmentMessages": response2 }
 
 
     # Find the sex from here
-    elif(intent=="ora-sex-int"):
-      global sex
+    elif(intent=="ora-sex-int" || intent=="ora-temperature-int"):
+      # global sex
       # print(sex)
-      ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
-      if(ff=="Male"):
-        sex = 1
-      elif(ff=="Female"):
-        sex=2
-      else:
-        sex=3
+      # ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
+      # if(ff=="Male"):
+      #   sex = 1
+      # elif(ff=="Female"):
+      #   sex=2
+      # else:
+      #   sex=3
       
       # print(temp)
       # print(sex)
-      response = "Your temperature is "+str(temp)+" and your sex is "+str(sex)+" ."
-      # response="Return back string"
+      # response = "Your temperature is "+str(temp)+" and your sex is "+str(sex)+" ."
+      response="Return back string"
       response2 = [{
         "card":{
         "title":"What is your Body Temperature",
