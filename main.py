@@ -252,7 +252,6 @@ def get_country_detail():
       # ff = data['queryResult']['fulfillmentMessages']['card']['buttons']['text']
       print(intent)
       # print(ff[0])
-      initilize()
 
       response = [{
         "card":{
@@ -379,6 +378,7 @@ def get_country_detail():
    
 
 if __name__ == '__main__':
+    initilize()
     app.run()
 
       
