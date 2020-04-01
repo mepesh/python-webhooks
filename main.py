@@ -14,6 +14,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
+    initilize()
     return "Flask setup"
 
 def sheets_row_writer(data_list):
@@ -378,7 +379,7 @@ def get_country_detail():
    
 
 if __name__ == '__main__':
-    initilize()
+    
     app.run()
 
       
