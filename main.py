@@ -297,7 +297,7 @@ def get_country_detail():
         "postback":"ora-sex-int"
         },
         {
-        "text":"Others"
+        "text":"Others",
         "payload":"ora-sex-int"
         }
         ]
