@@ -11,7 +11,8 @@ scope = ['https://spreadsheets.google.com/feeds',
 # Initialize application
 app = Flask(__name__)
 
-
+temp=0
+sex=0
 @app.route("/")
 def hello():
     return "Flask setup"
@@ -272,16 +273,89 @@ def get_country_detail():
         ]
 
       reply = { "fulfillmentMessages" : response }
-
+# Find the temperature from here
     elif(intent=="ora-temperature-int"):
       ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
-      print (ff)
+      if(ff=="Normal [98F - 98.6F]"):
+        temp = 1
+      else:
+        temp=2
       
-      response = "Apple has been returned"
+      # response = "Your temperature is ",temp," !."
+      response2 = [{
+        "card":{
+        "title":"What is your Body Temperature",
+        "subtitle":"Give honest answer",
+        "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
+        "buttons":[
+        {
+        "text":"Male",
+        "postback":"ora-sex-int"
+        },
+        {
+        "text":"Female",
+        "postback":"ora-sex-int"
+        },
+        {
+        "text":"Others"
+        "payload":"ora-sex-int"
+        }
+        ]
+        },
+        "platform":"FACEBOOK"
+        },
+        {
+          "text":{"text":["Dummy text"]}
+        }
+        
+        ]
 
-      reply = { "fulfillmentText": response }
 
 
+
+      reply = { "fulfillmentMessages": response2 }
+
+
+    # Find the sex from here
+    elif(intent=="ora-sex-int"):
+      ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
+      if(ff=="Male"):
+        sex = 1
+      elif(ff=="Female"):
+        sex=2
+      else:
+        sex=3
+      
+      response = "Your temperature is ",temp," and your sex is ",sex," ."
+      response2 = [{
+        "card":{
+        "title":"What is your Body Temperature",
+        "subtitle":"Give honest answer",
+        "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
+        "buttons":[
+        {
+        "text":"Male",
+        "postback":"ora-sex-int"
+        },
+        {
+        "text":"Female",
+        "postback":"ora-sex-int"
+        },
+        {
+        "text":"Others"
+        "payload":"ora-sex-int"
+        }
+        ]
+        },
+        "platform":"FACEBOOK"
+        },
+        {
+          "text":{"text":["Dummy text"]}
+        }
+        
+        ]
+
+      reply = { "fulfillmentMessages": response }
     else:
       response = death_global()
       reply = { "fulfillmentText": response }   
