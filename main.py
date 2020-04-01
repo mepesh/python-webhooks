@@ -242,24 +242,29 @@ def get_country_detail():
         ]
       reply = { "fulfillmentMessages": response }
  
-    elif(intent=="ora-temperature-int"):
+    elif(intent=="online-risk-assement"):
       # ff = data['queryResult']['fulfillmentMessages']['card']['buttons']['text']
       print(intent)
       # print(ff[0])
 
-      response = [
-
-      {
-        "quickReplies": {
-          "title": "Tell me About your Sex",
-          "quickReplies": [
-            "Male",
-            "Female",
-            "Others"
-          ]
+      response = [{
+        "card":{
+        "title":"What is your Body Temperature",
+        "subtitle":"Give honest answer",
+        "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
+        "buttons":[
+        {
+        "text":"Normal [98F - 98.6F]",
+        "postback":"ora-temperature-int"
         },
-        "platform": "FACEBOOK"
-      },
+        {
+        "text":"Mild [98.6F -102F]",
+        "postback":"ora-temperature-int"
+        }
+        ]
+        },
+        "platform":"FACEBOOK"
+        },
         {
           "text":{"text":["Dummy text"]}
         }
