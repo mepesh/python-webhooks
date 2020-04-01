@@ -337,8 +337,8 @@ def get_country_detail():
       else:
         sex=3
       
-      print(temp)
-      print(sex)
+      # print(temp)
+      # print(sex)
       response = "Your temperature is "+str(temp)+" and your sex is "+str(sex)+" ."
       # response="Return back string"
       response2 = [{
