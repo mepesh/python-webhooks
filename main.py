@@ -275,6 +275,7 @@ def get_country_detail():
       reply = { "fulfillmentMessages" : response }
 # Find the temperature from here
     elif(intent=="ora-temperature-int"):
+      global temp
       ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
       if(ff=="Normal [98F - 98.6F]"):
         temp = 1
@@ -282,6 +283,8 @@ def get_country_detail():
         temp=2
       
       # response = "Your temperature is ",temp," !."
+      print("temp inside ora-temperature-int")
+      print(temp)
       response2 = [{
         "card":{
         "title":"What is your Body Temperature",
