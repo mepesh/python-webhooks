@@ -24,10 +24,7 @@ def sheets_row_writer(data_list):
   worksheet.append_row(data_list) 
   print("Write complete")
 
-# def initilize():
-#   print("nit")
-#   temp=0
-#   sex=0
+
 
 def death_global():
   page = requests.get("https://www.worldometers.info/coronavirus/")
@@ -326,6 +323,7 @@ def get_country_detail():
 
     # Find the sex from here
     elif(intent=="ora-sex-int" or intent=="ora-temperature-int"):
+      global temp
       if(intent=="ora-temperature-int"):
         ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
         if(ff=="Normal [98F - 98.6F]"):
@@ -364,6 +362,7 @@ def get_country_detail():
         return jsonify(reply)
 
       else:
+        global sex
         ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
         if(ff=="Male"):
           sex=1
