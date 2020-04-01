@@ -328,7 +328,7 @@ def get_country_detail():
     # Find the sex from here
     elif(intent=="ora-sex-int"):
       global sex
-      print(sex)
+      # print(sex)
       ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
       if(ff=="Male"):
         sex = 1
