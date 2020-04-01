@@ -77,8 +77,6 @@ def get_country_detail():
       response = requests.get(url)
       todos = json.loads(response.text)
       data = todos['tested_total']
-      print(data)
-      print(type(data)) 
 
       response2 = "In Nepal Total Cases : "+str(todos['tested_total'])+ " among them "+str(todos["tested_negative"])+" tested negative and only "+str(todos["tested_positive"])+" tested positive  "+str(todos["in_isolation"])+" are in isolation and "+str(todos["deaths"])+" deaths. "
       print (response2)
@@ -338,8 +336,8 @@ def get_country_detail():
       
       print(temp)
       print(sex)
-      # response = "Your temperature is ",temp," and your sex is ",sex," ."
-      response="Return back string"
+      response = "Your temperature is "+str(temp)+" and your sex is "+str(sex)+" ."
+      # response="Return back string"
       response2 = [{
         "card":{
         "title":"What is your Body Temperature",
