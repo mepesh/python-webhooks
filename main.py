@@ -9,10 +9,12 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
 # Initialize application
-app = Flask(__name__)
-
 temp=0
 sex=0
+
+app = Flask(__name__)
+
+
 @app.route("/")
 def hello():
     return "Flask setup"
@@ -75,8 +77,9 @@ def get_country_detail():
       response = requests.get(url)
       todos = json.loads(response.text)
       data = todos['tested_total']
+      print(data)
 
-      response2 = "In Nepal Total Cases : "+todos['tested_total']+ " among them "+todos["tested_negative"]+" tested negative and only "+todos["tested_positive"]+" tested positive and 0 death. "
+      response2 = "In Nepal Total Cases : ",todos['tested_total'], " among them ",todos["tested_negative"]," tested negative and only ",todos["tested_positive"]," tested positive and 0 death. "
       response = [
 
       {
