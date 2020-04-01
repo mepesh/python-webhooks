@@ -9,9 +9,6 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
 # Initialize application
-temp=0
-sex=0
-
 app = Flask(__name__)
 
 
@@ -26,6 +23,11 @@ def sheets_row_writer(data_list):
   worksheet = client.open('corona-help-resource-management').sheet1
   worksheet.append_row(data_list) 
   print("Write complete")
+
+def initilize():
+  print("nit")
+  temp=0
+  sex=0
 
 def death_global():
   page = requests.get("https://www.worldometers.info/coronavirus/")
@@ -250,6 +252,7 @@ def get_country_detail():
       # ff = data['queryResult']['fulfillmentMessages']['card']['buttons']['text']
       print(intent)
       # print(ff[0])
+      initilize()
 
       response = [{
         "card":{
