@@ -274,7 +274,7 @@ def get_country_detail():
 
       reply = { "fulfillmentMessages" : response }
 # Find the temperature from here
-    elif(intent=="ora-teinmperature-int"):
+    elif(intent=="ora-temperature-int"):
       ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
       if(ff=="Normal [98F - 98.6F]"):
         temp = 1
