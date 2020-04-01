@@ -367,7 +367,7 @@ def get_country_detail():
         ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
         if(ff=="Male"):
           sex=1
-        elif(ff="Female"):
+        elif(ff=="Female"):
           sex=2
         else:
           sex=3
