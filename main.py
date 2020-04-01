@@ -80,6 +80,7 @@ def get_country_detail():
       print(data)
 
       response2 = "In Nepal Total Cases : ",todos['tested_total'], " among them ",todos["tested_negative"]," tested negative and only ",todos["tested_positive"]," tested positive and 0 death. "
+      print (response2)
       response = [
 
       {
