@@ -80,7 +80,7 @@ def get_country_detail():
       print(data)
       print(type(data)) 
 
-      response2 = "In Nepal Total Cases : ",todos['tested_total'], " among them ",todos["tested_negative"]," tested negative and only ",todos["tested_positive"]," tested positive and 0 death. "
+      response2 = "In Nepal Total Cases : "+str(todos['tested_total'])+ " among them "+str(todos["tested_negative"])+" tested negative and only "+str(todos["tested_positive"])+," tested positive , "+str(todos["in_isolation"])+" are in isolation and "+str(todos["deaths"])+" deaths. "
       print (response2)
       response = [
 
@@ -100,7 +100,7 @@ def get_country_detail():
         
         ]
 
-      reply = { "fulfillmentText": response2 }
+      reply = { "fulfillmentMessages": response }
       
 
     elif(intent == "news-nepal-int"):
