@@ -377,9 +377,20 @@ def get_country_detail():
 
     elif(intent=="faq-que-ans-int"):
       print (data)
-      # ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
+      ff = data['originalDetectIntentRequest']['payload']['data']['message']['text']
+      url = "https://nepalcorona.info/api/v1/faqs"
+      response = requests.get(url)
+      todos = json.loads(response.text)
+      rand = random.randrange(0, 11, 1)
+      faqs = todos['data']
+      if(ff=="English FAQ"):
+        randq= faqs['question']
+        randa = faqs['answer']
+      else:
+        randq=faqs['question_np']
+        randa=faqs['answer_np']
 
-      response = "This is question to be displayed"
+      response = ""+randq+"\n"+randa+"\n"
       reply = { "fulfillmentText": response }
 
     else:
