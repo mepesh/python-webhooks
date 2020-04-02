@@ -380,7 +380,8 @@ def get_country_detail():
       url = "https://nepalcorona.info/api/v1/faqs"
       response = requests.get(url)
       todos = json.loads(response.text)
-      rand = random.randrange(0, 11, 1)
+      rand = random.randrange(0, 45, 1)
+      opt3 = ["Live Nepali Data","Latest Nepali News","Symptoms","Preventions","Self Isolation","Play Corona Quiz"]
       faqs = todos['data']
       faq = faqs[rand]
       if(ff=="English FAQ" or ff =="More Quizzles" or ff =="भाषा परिवर्तन"):
@@ -412,7 +413,7 @@ def get_country_detail():
           "quickReplies": [
             opt1,
             opt2,
-            "Live Nepali Data"
+            random.choice(opt3)
           ]
         },
         "platform": "FACEBOOK"
