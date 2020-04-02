@@ -406,7 +406,7 @@ def get_country_detail():
         "platform": "FACEBOOK"
       },
         {
-          "text":{"text":["Dummy text"]}
+          "text":{"text":["Apple is Red why dont u teust apple"]}
         }
         
         ]
