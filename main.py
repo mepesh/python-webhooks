@@ -383,14 +383,15 @@ def get_country_detail():
       todos = json.loads(response.text)
       rand = random.randrange(0, 11, 1)
       faqs = todos['data']
+      faq = faqs[rand]
       if(ff=="English FAQ"):
-        randq= faqs['question']
-        randa = faqs['answer']
+        randq= faq['question']
+        randa = faq['answer']
       else:
-        randq=faqs['question_np']
-        randa=faqs['answer_np']
+        randq = faq['question_np']
+        randa = faq['answer_np']
 
-      response = ""+randq+"\n"+randa+"\n"
+      response = "Q. "+randq+"\n A. "+randa+"\n"
       reply = { "fulfillmentText": response }
 
     else:
