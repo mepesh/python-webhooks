@@ -25,7 +25,6 @@ def sheets_row_writer(data_list):
   print("Write complete")
 
 
-
 def death_global():
   page = requests.get("https://www.worldometers.info/coronavirus/")
   soup = BeautifulSoup(page.content, 'html.parser')
@@ -375,6 +374,13 @@ def get_country_detail():
         reply = { "fulfillmentText" : response}
         return jsonify(reply)
 
+
+    elif(intent=="faq-que-ans-int"):
+      print (data)
+      # ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
+
+      response = "This is question to be displayed"
+      reply = { "fulfillmentText": response }
 
     else:
       response = death_global()
