@@ -398,12 +398,10 @@ def get_country_detail():
         "quickReplies": {
           "title": response,
           "quickReplies": [{
-        "content_type": "text",
         "title": "Next FAQ",
         "payload": "faq-que-ans-int"
       },
       {
-        "content_type": "text",
         "title": "Switch Language ",
         "payload": "faq-que-ans-int"
       }
