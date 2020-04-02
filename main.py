@@ -383,12 +383,16 @@ def get_country_detail():
       rand = random.randrange(0, 11, 1)
       faqs = todos['data']
       faq = faqs[rand]
-      if(ff=="English FAQ" or ff =="Next FAQ"):
+      if(ff=="English FAQ" or ff =="More Quizzles" or ff =="भाषा परिवर्तन"):
         randq= faq['question']
         randa = faq['answer']
+        opt1 = "More Quizzles"
+        opt2 = "Switch Language"
       else:
         randq = faq['question_np']
         randa = faq['answer_np']
+        opt1 = "अरु देखाउनुहोस >>"
+        opt2 = "भाषा परिवर्तन"
 
       response2 = "Q. "+randq+"\n A. "+randa+"\n"
       response = [{
@@ -406,8 +410,8 @@ def get_country_detail():
         "quickReplies": {
           "title": randa,
           "quickReplies": [
-            "Next FAQ",
-            "Switch Language",
+            opt1,
+            opt2,
             "Live Nepali Data"
           ]
         },
