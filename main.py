@@ -391,16 +391,26 @@ def get_country_detail():
         randq = faq['question_np']
         randa = faq['answer_np']
 
-      response = "Q. "+randq+"\n A. "+randa+"\n"
-      response2 = [
+      response2 = "Q. "+randq+"\n A. "+randa+"\n"
+      response = [
+
       {
         "quickReplies": {
-          "title": response,
+          "title": response2,
           "quickReplies": [
             "Next FAQ",
-            "Switch Language"        
+            "Switch Language",
+            "Live Nepali Data"
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+        {
+          "text":{"text":["Dummy text"]}
+        }
+        
         ]
-      reply = { "fulfillmentMessages": response2 }
+      reply = { "fulfillmentMessages": response }
 
     else:
       response = death_global()
