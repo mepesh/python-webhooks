@@ -384,7 +384,7 @@ def get_country_detail():
       rand = random.randrange(0, 11, 1)
       faqs = todos['data']
       faq = faqs[rand]
-      if(ff=="English FAQ"):
+      if(ff=="English FAQ" or ff =="Next FAQ"):
         randq= faq['question']
         randa = faq['answer']
       else:
@@ -392,7 +392,31 @@ def get_country_detail():
         randa = faq['answer_np']
 
       response = "Q. "+randq+"\n A. "+randa+"\n"
-      reply = { "fulfillmentText": response }
+      response2 = [
+
+      {
+        "quickReplies": {
+          "title": response,
+          "quickReplies": [{
+        "content_type": "text",
+        "title": "Next FAQ",
+        "payload": "faq-que-ans-int"
+      },
+      {
+        "content_type": "text",
+        "title": "Switch Language ",
+        "payload": "faq-que-ans-int"
+      }
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+        {
+          "text":{"text":["Dummy text"]}
+        }
+        
+        ]
+      reply = { "fulfillmentMessages": response2 }
 
     else:
       response = death_global()
