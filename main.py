@@ -79,7 +79,6 @@ def get_country_detail():
       response2 = "In Nepal Total Cases : "+str(todos['tested_total'])+ " among them "+str(todos["tested_negative"])+" tested negative and only "+str(todos["tested_positive"])+" tested positive  "+str(todos["in_isolation"])+" are in isolation and "+str(todos["deaths"])+" deaths. "
       print (response2)
       response = [
-
       {
         "quickReplies": {
           "title": response2,
@@ -392,11 +391,20 @@ def get_country_detail():
         randa = faq['answer_np']
 
       response2 = "Q. "+randq+"\n A. "+randa+"\n"
-      response = [
+      response = [{
+        "text": {
+          "text": [
+            randq
+          ]
+        },
+        "platform": "FACEBOOK"
+      },{
+          "text":{"text":["Dummy text"]}
+        },
 
       {
         "quickReplies": {
-          "title": response2,
+          "title": randa,
           "quickReplies": [
             "Next FAQ",
             "Switch Language",
@@ -406,7 +414,7 @@ def get_country_detail():
         "platform": "FACEBOOK"
       },
         {
-          "text":{"text":["Apple is Red why dont u teust apple"]}
+          "text":{"text":["Dummy text"]}
         }
         
         ]
