@@ -393,26 +393,12 @@ def get_country_detail():
 
       response = "Q. "+randq+"\n A. "+randa+"\n"
       response2 = [
-
       {
         "quickReplies": {
           "title": response,
-          "quickReplies": [{
-        "title": "Next FAQ",
-        "payload": "faq-que-ans-int"
-      },
-      {
-        "title": "Switch Language ",
-        "payload": "faq-que-ans-int"
-      }
-          ]
-        },
-        "platform": "FACEBOOK"
-      },
-        {
-          "text":{"text":["Dummy text"]}
-        }
-        
+          "quickReplies": [
+            "Next FAQ",
+            "Switch Language"        
         ]
       reply = { "fulfillmentMessages": response2 }
 
