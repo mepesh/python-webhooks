@@ -427,16 +427,18 @@ def get_country_detail():
 
     elif(intent=="bloodpal-need-blood-main-int - yes"):
       print (intent)
+      print (data)
+      response = "Test this feature"
 
-      blood_group = data['queryResult']['parameters']['blood-group']
-      blood_amount = data['queryResult']['parameters']['blood-pint']
-      location = data['queryResult']['parameters']['blood-location']
-      case = data['queryResult']['parameters']['blood-case']
-      date = data['queryResult']['parameters']['blood-date']
-      phone = data['queryResult']['parameters']['blood-number']
-      ilist = [blood_group[0],blood_amount[0],location[0],case[0],date[0],phone[0]]
-      sheets_row_writer(ilist)
-      response = "Successfully requested "+blood_group[0]+" blood "+blood_amount[0]+" pints. We will contact you in the provided number "+phone[0]+" Thank you ."
+      # blood_group = data['queryResult']['parameters']['blood-group']
+      # blood_amount = data['queryResult']['parameters']['blood-pint']
+      # location = data['queryResult']['parameters']['blood-location']
+      # case = data['queryResult']['parameters']['blood-case']
+      # date = data['queryResult']['parameters']['blood-date']
+      # phone = data['queryResult']['parameters']['blood-number']
+      # ilist = [blood_group[0],blood_amount[0],location[0],case[0],date[0],phone[0]]
+      # sheets_row_writer(ilist)
+      # response = "Successfully requested "+blood_group[0]+" blood "+blood_amount[0]+" pints. We will contact you in the provided number "+phone[0]+" Thank you ."
 
 
     else:
