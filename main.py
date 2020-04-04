@@ -439,6 +439,7 @@ def get_country_detail():
       ilist = [blood_group,blood_amount,location,case,date,phone]
       sheets_row_writer(ilist)
       response = "Successfully requested "+blood_group+" blood "+blood_amount+" pints. We will contact you in the provided number "+phone+" Thank you ."
+      reply = { "fulfillmentText": response }
 
 
     else:
