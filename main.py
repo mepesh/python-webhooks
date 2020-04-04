@@ -440,8 +440,33 @@ def get_country_detail():
       phone = data['queryResult']['parameters']['blood-number']
       ilist = [blood_group,blood_amount,location,case,date,phone]
       sheets_row_writer(ilist)
+      response3 = "Other hepful number for emergency cases काठमाडौँ ९८८०९९८५२३ भक्तपुर ९८८०९९८५२५ काभ्रे ९८६९२९४४९० पुर्वाञ्चल ९८६२१७६६८९ चितवन ९८०१०७०७४६ दाङ्ग ९८०१९२०१६९ बुटवल ९८०७५२२६६४ "
       response = "Successfully requested "+blood_group+" blood "+str(blood_amount)+" pints. We will contact you in the provided number "+phone+" Thank you ."
-      reply = { "fulfillmentText": response }
+      response2 = [{
+        "text": {
+          "text": [
+            response
+          ]
+        },
+        "platform": "FACEBOOK"
+      },{
+          "text":{"text":["Dummy text"]}
+        },
+        {
+        "text": {
+          "text": [
+            response3
+          ]
+        },
+        "platform": "FACEBOOK"
+      },{
+          "text":{"text":["Dummy text"]}
+        }
+        
+        ]
+
+
+      reply = { "fulfillmentMessages": response2 }
 
 
     else:
