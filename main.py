@@ -20,7 +20,7 @@ def sheets_row_writer(data_list):
   print("sheets method invoked")
   credentials = ServiceAccountCredentials.from_json_keyfile_name('mechnepal-test-54c4387178d9.json', scope)
   client = gspread.authorize(credentials)
-  worksheet = client.open('corona-help-resource-management').sheet2
+  worksheet = client.open('corona-help-resource-management').BloodPal
   worksheet.append_row(data_list) 
   print("Write complete")
 
