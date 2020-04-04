@@ -440,8 +440,8 @@ def get_country_detail():
       phone = data['queryResult']['parameters']['blood-number']
       ilist = [blood_group,blood_amount,location,case,date,phone]
       sheets_row_writer(ilist)
-      response3 = "Other hepful number for emergency cases काठमाडौँ ९८८०९९८५२३ भक्तपुर ९८८०९९८५२५ काभ्रे ९८६९२९४४९० पुर्वाञ्चल ९८६२१७६६८९ चितवन ९८०१०७०७४६ दाङ्ग ९८०१९२०१६९ बुटवल ९८०७५२२६६४ "
-      response = "Successfully requested "+blood_group+" blood "+str(blood_amount)+" pints. We will contact you in the provided number "+phone+" Thank you ."
+      response3 = "For critical case, please contact Kathmandu 9880998522 Bhaktapur 9880998525 Kavre 9869294490 Purwanchal 9862176689 Chitwan 9801070746 Butwal 9807522664 Dang 9801920169 Stay connected with BloodPal!"
+      response = "The following request has been sent. We will contact you shortly. "+blood_group+" blood ("+str(blood_amount)+" ) required for "+case+" at "+location+" ASAP"+date+" - "+phone+" Thank you ."
       response2 = [{
         "text": {
           "text": [
