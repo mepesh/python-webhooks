@@ -440,7 +440,11 @@ def get_country_detail():
       phone = data['queryResult']['parameters']['blood-number']
       ilist = [blood_group,blood_amount,location,case,date,phone]
       sheets_row_writer(ilist)
+<<<<<<< HEAD
       response3 = "For critical case, please contact \n Kathmandu 9880998522 \n Bhaktapur 9880998525 \n Kavre 9869294490 \n Purwanchal 9862176689 \n Chitwan 9801070746 \n Butwal 9807522664 \n Dang 9801920169 \n Stay connected with BloodPal!"
+=======
+      response3 = "For critical case, please contact Kathmandu 9880998523 Bhaktapur 9880998525 Kavre 9869294490 Purwanchal 9862176689 Chitwan 9801070746 Butwal 9807522664 Dang 9801920169 Stay connected with BloodPal!"
+>>>>>>> be8d2bcef3fbd6e4f479ffdddfe54ba18fe32d5e
       response = "The following request has been sent. We will contact you shortly. "+blood_group+" blood ("+str(blood_amount)+" ) required for "+case+" at "+location+" ASAP"+date+" - "+phone+" Thank you ."
       response2 = [{
         "text": {
