@@ -70,7 +70,6 @@ def get_country_detail():
     data = request.get_json(silent=True)
     intent = data['queryResult']['intent']['displayName']
     print (intent)
-    switch(intent)
     
     def nepal_data_int():
       url = "https://nepalcorona.info/api/v1/data/nepal"
@@ -319,6 +318,8 @@ def get_country_detail():
     
     def switch(intentname):
       return switcher.get(intentname, default)()
+
+    switch(intent)
     
 
     # if(intent == "nepal data int"):
