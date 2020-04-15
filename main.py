@@ -68,7 +68,6 @@ def death_country(id):
 @app.route('/get_country_detail', methods=['POST'])
 def get_country_detail():
     data = request.get_json(silent=True)
-#     response = death_global()
     intent = data['queryResult']['intent']['displayName']
     print (intent)
 
@@ -108,7 +107,6 @@ def get_country_detail():
       data1 = data[0]
       data2 = data[1]
       data3 = data[2]
-      # response1 = "Here are the latest news \n"+data1['url']+"\n"+data2['url']+"\n"+data3['url']
       response2 = [{
         "card":{
         "title":data1['title'],
@@ -216,18 +214,6 @@ def get_country_detail():
       print(intent)
 
       response = [
-      # {
-      # "card":{
-      #   "title":"Death Total in Nepal",
-      #   "subtitle":"As of Now  ",
-      #   "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
-      #   },
-      #   "platform":"FACEBOOK"
-      #   },
-      #   {
-      #     "text":{"text":["Dummy text"]}
-      #   },
-
       {
         "quickReplies": {
           "title": "More Video about Corona Prevention Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN ",
@@ -246,10 +232,7 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response }
  
     elif(intent=="online-risk-assement"):
-      # ff = data['queryResult']['fulfillmentMessages']['card']['buttons']['text']
       print(intent)
-      # print(ff[0])
-
       response = [{
         "card":{
         "title":"What is your Body Temperature",
@@ -275,105 +258,6 @@ def get_country_detail():
         ]
 
       reply = { "fulfillmentMessages" : response }
-# Find the temperature from here
-    # elif(intent=="ora-temperature-int"):
-    #   global temp 
-    #   ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
-    #   if(ff=="Normal [98F - 98.6F]"):
-    #     temp = 1
-    #   else:
-    #     temp=2
-      
-    #   # response = "Your temperature is ",temp," !."
-    #   print("temp inside ora-temperature-int")
-    #   print(temp)
-      # response2 = [{
-      #   "card":{
-      #   "title":"What is your Body Temperature",
-      #   "subtitle":"Give honest answer",
-      #   "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
-      #   "buttons":[
-      #   {
-      #   "text":"Male",
-      #   "postback":"ora-sex-int"
-      #   },
-      #   {
-      #   "text":"Female",
-      #   "postback":"ora-sex-int"
-      #   },
-      #   {
-      #   "text":"Others",
-      #   "payload":"ora-sex-int"
-      #   }
-      #   ]
-      #   },
-      #   "platform":"FACEBOOK"
-      #   },
-      #   {
-      #     "text":{"text":["Dummy text"]}
-      #   }
-        
-      #   ]
-
-
-
-
-    #   reply = { "fulfillmentMessages": response2 }
-
-
-    # Find the sex from here
-    elif(intent=="ora-sex-int" or intent=="ora-temperature-int"):
-      global temp
-      if(intent=="ora-temperature-int"):
-        ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
-        if(ff=="Normal [98F - 98.6F]"):
-          temp=1
-        else:
-          temp=2
-        
-        response2 = [{
-        "card":{
-        "title":"What is your Body Temperature",
-        "subtitle":"Give honest answer",
-        "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
-        "buttons":[
-        {
-        "text":"Male",
-        "postback":"ora-sex-int"
-        },
-        {
-        "text":"Female",
-        "postback":"ora-sex-int"
-        },
-        {
-        "text":"Others",
-        "payload":"ora-sex-int"
-        }
-        ]
-        },
-        "platform":"FACEBOOK"
-        },
-        {
-          "text":{"text":["Dummy text"]}
-        }
-        
-        ]
-        reply = { "fulfillmentMessages" : response2}
-        return jsonify(reply)
-
-      else:
-        global sex
-        ff = data['originalDetectIntentRequest']['payload']['data']['postback']['title']
-        if(ff=="Male"):
-          sex=1
-        elif(ff=="Female"):
-          sex=2
-        else:
-          sex=3
-
-        response = "The returened values are "+str(temp)+"."+str(sex)+"."
-        reply = { "fulfillmentText" : response}
-        return jsonify(reply)
 
 
     elif(intent=="faq-que-ans-int"):
