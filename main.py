@@ -316,7 +316,9 @@ def get_country_detail():
     "data world int": world_data_live,
     "district data int": district_data_live
     }
-
+    
+    def switch(intentname):
+      return switcher.get(intentname, default)()
     
 
     # if(intent == "nepal data int"):
