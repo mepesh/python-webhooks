@@ -70,8 +70,9 @@ def get_country_detail():
     data = request.get_json(silent=True)
     intent = data['queryResult']['intent']['displayName']
     print (intent)
-
-    if(intent == "nepal data int"):
+    switch(intent)
+    
+    def nepal_data_int():
       url = "https://nepalcorona.info/api/v1/data/nepal"
       response = requests.get(url)
       todos = json.loads(response.text)
@@ -97,9 +98,10 @@ def get_country_detail():
         ]
 
       reply = { "fulfillmentMessages": response }
-      
+      return jsonify(reply)
 
-    elif(intent == "news-nepal-int"):
+      
+    def news_nepal_int():
       url = "https://nepalcorona.info/api/v1/news"
       response = requests.get(url)
       news = json.loads(response.text)
@@ -174,21 +176,15 @@ def get_country_detail():
       ]
 
       reply = { "fulfillmentMessages": response2 }
-
-    elif(intent == "i need help main int - yes"):
-      print (intent)
+      return jsonify(reply)
+    
+    def i_need_help_yes():
       name = data['queryResult']['parameters']['name-people']
       place = data['queryResult']['parameters']['name-place']
       item_required = data['queryResult']['parameters']['help-ent']
       phone = data['queryResult']['parameters']['phone-number']
       ilist = [item_required[0],name[0],phone[0],place[0]]
-      for v in ilist:
-        print (v)
-
-
       sheets_row_writer(ilist)
-
-      # response =" Info updated Will contact u asap !"
       response2 = "Hello "+name[0]+" so you are looking for "+item_required[0]+" Your location is "+place[0]+" One of our Team will contact you @ " +phone[0]+" soon !"
       response = [
 
@@ -209,59 +205,9 @@ def get_country_detail():
         ]
 
       reply = { "fulfillmentMessages": response }
+      return jsonify(reply)
 
-    elif(intent=="test-custom-int"):
-      print(intent)
-
-      response = [
-      {
-        "quickReplies": {
-          "title": "More Video about Corona Prevention Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN ",
-          "quickReplies": [
-            "Self Isolation",
-            "Live Corona Data"
-          ]
-        },
-        "platform": "FACEBOOK"
-      },
-        {
-          "text":{"text":["Dummy text"]}
-        }
-        
-        ]
-      reply = { "fulfillmentMessages": response }
- 
-    elif(intent=="online-risk-assement"):
-      print(intent)
-      response = [{
-        "card":{
-        "title":"What is your Body Temperature",
-        "subtitle":"Give honest answer",
-        "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
-        "buttons":[
-        {
-        "text":"Normal [98F - 98.6F]",
-        "postback":"ora-temperature-int"
-        },
-        {
-        "text":"Mild [98.6F -102F]",
-        "postback":"ora-temperature-int"
-        }
-        ]
-        },
-        "platform":"FACEBOOK"
-        },
-        {
-          "text":{"text":["Dummy text"]}
-        }
-        
-        ]
-
-      reply = { "fulfillmentMessages" : response }
-
-
-    elif(intent=="faq-que-ans-int"):
-      print (data)
+    def faq_ques_ans():
       ff = data['originalDetectIntentRequest']['payload']['data']['message']['text']
       url = "https://nepalcorona.info/api/v1/faqs"
       response = requests.get(url)
@@ -311,11 +257,11 @@ def get_country_detail():
         ]
       reply = { "fulfillmentMessages": response }
 
-    elif(intent=="bloodpal-need-blood-main-int - yes"):
+      return jsonify(reply)
+    
+    def blood_pal_yes():
       print (intent)
       print (data)
-      # response = "Test this feature"
-
       blood_group = data['queryResult']['parameters']['blood-group']
       blood_amount = data['queryResult']['parameters']['blood-pint']
       location = data['queryResult']['parameters']['blood-location']
@@ -348,17 +294,112 @@ def get_country_detail():
         }
         
         ]
-
-
       reply = { "fulfillmentMessages": response2 }
-
-
-    else:
+      return jsonify(reply)
+    
+    def world_data_live():
       response = death_global()
-      reply = { "fulfillmentText": response }   
+      reply = { "fulfillmentText": response }
+      return jsonify(reply)
+    
+    def district_data_live():
+      return "jsonify(reply)"
+    def default():
+      return "Incorrect Data"
+
+    switcher = {
+    "nepal data int": nepal_data_int,
+    "news-nepal-int": news_nepal_int,
+    "i need help main int - yes": i_need_help_yes,
+    "faq-que-ans-int": faq_ques_ans,
+    "bloodpal-need-blood-main-int - yes": blood_pal_yes,
+    "data world int": world_data_live,
+    "district data int": district_data_live
+    }
+
+    
+
+    # if(intent == "nepal data int"):
+      
+      
       
 
-    return jsonify(reply)
+    # elif(intent == "news-nepal-int"):
+      
+      
+
+    # elif(intent == "i need help main int - yes"):
+    #   print (intent)
+      
+    #   for v in ilist:
+    #     print (v)
+
+      
+
+    # elif(intent=="test-custom-int"):
+    #   print(intent)
+
+    #   response = [
+    #   {
+    #     "quickReplies": {
+    #       "title": "More Video about Corona Prevention Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN ",
+    #       "quickReplies": [
+    #         "Self Isolation",
+    #         "Live Corona Data"
+    #       ]
+    #     },
+    #     "platform": "FACEBOOK"
+    #   },
+    #     {
+    #       "text":{"text":["Dummy text"]}
+    #     }
+        
+    #     ]
+    #   reply = { "fulfillmentMessages": response }
+ 
+    # elif(intent=="online-risk-assement"):
+    #   print(intent)
+    #   response = [{
+    #     "card":{
+    #     "title":"What is your Body Temperature",
+    #     "subtitle":"Give honest answer",
+    #     "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
+    #     "buttons":[
+    #     {
+    #     "text":"Normal [98F - 98.6F]",
+    #     "postback":"ora-temperature-int"
+    #     },
+    #     {
+    #     "text":"Mild [98.6F -102F]",
+    #     "postback":"ora-temperature-int"
+    #     }
+    #     ]
+    #     },
+    #     "platform":"FACEBOOK"
+    #     },
+    #     {
+    #       "text":{"text":["Dummy text"]}
+    #     }
+        
+    #     ]
+
+    #   reply = { "fulfillmentMessages" : response }
+
+
+    # elif(intent=="faq-que-ans-int"):
+    #   print (data)
+      
+      
+
+    # elif(intent=="bloodpal-need-blood-main-int - yes"):
+      
+
+
+    # else:
+         
+      
+
+    # return jsonify(reply)
    
 
 if __name__ == '__main__':
