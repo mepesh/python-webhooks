@@ -97,7 +97,7 @@ def get_country_detail():
         ]
 
       reply = { "fulfillmentMessages": response }
-      return jsonify(reply)
+      return reply
 
       
     def news_nepal_int():
@@ -175,7 +175,7 @@ def get_country_detail():
       ]
 
       reply = { "fulfillmentMessages": response2 }
-      return jsonify(reply)
+      return reply
     
     def i_need_help_yes():
       name = data['queryResult']['parameters']['name-people']
@@ -204,7 +204,7 @@ def get_country_detail():
         ]
 
       reply = { "fulfillmentMessages": response }
-      return jsonify(reply)
+      return reply
 
     def faq_ques_ans():
       ff = data['originalDetectIntentRequest']['payload']['data']['message']['text']
@@ -256,7 +256,7 @@ def get_country_detail():
         ]
       reply = { "fulfillmentMessages": response }
 
-      return jsonify(reply)
+      return reply
     
     def blood_pal_yes():
       print (intent)
@@ -294,12 +294,12 @@ def get_country_detail():
         
         ]
       reply = { "fulfillmentMessages": response2 }
-      return jsonify(reply)
+      return reply
     
     def world_data_live():
       response = death_global()
       reply = { "fulfillmentText": response }
-      return jsonify(reply)
+      return reply
     
     def district_data_live():
       return "jsonify(reply)"
@@ -319,7 +319,8 @@ def get_country_detail():
     def switch(intentname):
       return switcher.get(intentname, default)()
 
-    switch(intent)
+    reply = switch(intent)
+    return jsonify(reply)
     
 
     # if(intent == "nepal data int"):
