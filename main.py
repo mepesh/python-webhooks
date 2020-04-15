@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 import requests, json, random
 from bs4 import BeautifulSoup
 import gspread
+import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
 # page = requests.get("https://www.worldometers.info/coronavirus/")
 # soup = BeautifulSoup(page.content, 'html.parser')
