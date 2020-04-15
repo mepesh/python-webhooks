@@ -302,7 +302,37 @@ def get_country_detail():
       return reply
     
     def district_data_live():
-      return "jsonify(reply)"
+      district = data['queryResult']['parameters']['district']
+      district_data= pd.read_csv('https://raw.githubusercontent.com/mepesh/covid19-dashboard-voila/master/notebooks/test_data_cases.csv')
+      district_data["district"] = district_data["district"].str.lower()
+      dr = district_data.loc[district_data['district'] == district.lower()]
+      if(len(dr)==0):
+        opt2="Search Another District"
+        response2=("No data Found for "+district+"")
+      else:
+        opt2="Nepal Data Live"
+        drl= dr.values.tolist()
+        response2 = ("In "+drl[0][0]+" district there are "+str(drl[0][3])+" CASES "+str(drl[0][4])+" in ISOLATION "+str(drl[0][5])+" DEATHS and "+str(drl[0][6])+" RECOVERED .")
+        response = [
+      {
+        "quickReplies": {
+          "title": response2,
+          "quickReplies": [
+            "World Corona Data",
+             opt2
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+        {
+          "text":{"text":["Dummy text"]}
+        }
+        
+        ]
+
+      reply = { "fulfillmentMessages": response }
+      return reply
+      
     def default():
       return "Incorrect Data"
 
@@ -322,89 +352,6 @@ def get_country_detail():
     reply = switch(intent)
     return jsonify(reply)
     
-
-    # if(intent == "nepal data int"):
-      
-      
-      
-
-    # elif(intent == "news-nepal-int"):
-      
-      
-
-    # elif(intent == "i need help main int - yes"):
-    #   print (intent)
-      
-    #   for v in ilist:
-    #     print (v)
-
-      
-
-    # elif(intent=="test-custom-int"):
-    #   print(intent)
-
-    #   response = [
-    #   {
-    #     "quickReplies": {
-    #       "title": "More Video about Corona Prevention Here is a video from NDFN Here is a video from NDFN Here is a video from NDFN ",
-    #       "quickReplies": [
-    #         "Self Isolation",
-    #         "Live Corona Data"
-    #       ]
-    #     },
-    #     "platform": "FACEBOOK"
-    #   },
-    #     {
-    #       "text":{"text":["Dummy text"]}
-    #     }
-        
-    #     ]
-    #   reply = { "fulfillmentMessages": response }
- 
-    # elif(intent=="online-risk-assement"):
-    #   print(intent)
-    #   response = [{
-    #     "card":{
-    #     "title":"What is your Body Temperature",
-    #     "subtitle":"Give honest answer",
-    #     "imageUri":"http://exceltech.com.np/wp-content/uploads/2020/03/csm_corona_live_27eedc0a5d.jpg",
-    #     "buttons":[
-    #     {
-    #     "text":"Normal [98F - 98.6F]",
-    #     "postback":"ora-temperature-int"
-    #     },
-    #     {
-    #     "text":"Mild [98.6F -102F]",
-    #     "postback":"ora-temperature-int"
-    #     }
-    #     ]
-    #     },
-    #     "platform":"FACEBOOK"
-    #     },
-    #     {
-    #       "text":{"text":["Dummy text"]}
-    #     }
-        
-    #     ]
-
-    #   reply = { "fulfillmentMessages" : response }
-
-
-    # elif(intent=="faq-que-ans-int"):
-    #   print (data)
-      
-      
-
-    # elif(intent=="bloodpal-need-blood-main-int - yes"):
-      
-
-
-    # else:
-         
-      
-
-    # return jsonify(reply)
-   
 
 if __name__ == '__main__':
     
