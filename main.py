@@ -314,7 +314,8 @@ def get_country_detail():
         opt2="Nepal Data Live"
         drl= dr.values.tolist()
         response2 = ("In "+drl[0][0]+" district there are "+str(drl[0][3])+" CASES "+str(drl[0][4])+" in ISOLATION "+str(drl[0][5])+" DEATHS and "+str(drl[0][6])+" RECOVERED .")
-        response = [
+      
+      response = [
       {
         "quickReplies": {
           "title": response2,
