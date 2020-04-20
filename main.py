@@ -27,6 +27,15 @@ def sheets_row_writer(data_list):
   worksheet.append_row(data_list) 
   print("Write complete")
 
+def sheets_row_writer_donor(data_list_donor):
+  print("donor sheets method invoked")
+  credentials = ServiceAccountCredentials.from_json_keyfile_name('mechnepal-test-54c4387178d9.json', scope)
+  client = gspread.authorize(credentials)
+  sh = client.open('corona-help-resource-management')
+  worksheet = sh.get_worksheet(2)
+  # worksheet = client.open('corona-help-resource-management').BloodPal
+  worksheet.append_row(data_list_donor) 
+  print("Write complete")
 
 def death_global():
   page = requests.get("https://www.worldometers.info/coronavirus/")
@@ -297,6 +306,49 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response2 }
       return reply
     
+    def blood_pal_donor_yes():
+      print (intent)
+      print (data)
+      permananet_address = data['queryResult']['parameters']['permananet-address']
+      height = data['queryResult']['parameters']['height']
+      gender = data['queryResult']['parameters']['gender']
+      age = data['queryResult']['parameters']['age']
+      blood = data['queryResult']['parameters']['blood']
+      current_address = data['queryResult']['parameters']['current-address']
+      email = data['queryResult']['parameters']['email']
+      name = data['queryResult']['parameters']['name']
+      last_donation= data['queryResult']['parameters']['last-donation']
+      weight = data['queryResult']['parameters']['weight']
+      number = data['queryResult']['parameters']['number']
+      ilist = [name,number,email,current_address,permananet_address,age,height,weight,gender,blood,last_donation]
+      sheets_row_writer_donor(ilist)
+      response3 = "For critical case, please contact \n Kathmandu 9880998523 \n Bhaktapur 9880998525 \n Kavre 9869294490 \n Purwanchal 9862176689 \n Chitwan 9801070746 \n Butwal 9807522664 \n Dang 9801920169 \n Stay connected with BloodPal!"
+      response = "Thank you "+name+" for registration as a blood donor We will contact you at the time of urgency in your area."
+      response2 = [{
+        "text": {
+          "text": [
+            response
+          ]
+        },
+        "platform": "FACEBOOK"
+      },{
+          "text":{"text":["Dummy text"]}
+        },
+        {
+        "text": {
+          "text": [
+            response3
+          ]
+        },
+        "platform": "FACEBOOK"
+      },{
+          "text":{"text":["Dummy text"]}
+        }
+        
+        ]
+      reply = { "fulfillmentMessages": response2 }
+      return reply
+
     def world_data_live():
       response = death_global()
       reply = { "fulfillmentText": response }
@@ -345,7 +397,8 @@ def get_country_detail():
     "faq-que-ans-int": faq_ques_ans,
     "bloodpal-need-blood-main-int - yes": blood_pal_yes,
     "data world int": world_data_live,
-    "district data int": district_data_live
+    "district data int": district_data_live,
+    "bloodpal-become-donor-main-int":blood_pal_donor_yes
     }
     
     def switch(intentname):
