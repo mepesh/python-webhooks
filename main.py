@@ -356,7 +356,7 @@ def get_country_detail():
     
     def district_data_live():
       district = data['queryResult']['parameters']['district']
-      district_data= pd.read_csv('https://raw.githubusercontent.com/mepesh/covid19-dashboard-voila/master/notebooks/test_data_cases.csv')
+      district_data= pd.read_csv('https://raw.githubusercontent.com/mepesh/python-dashboard-covid19/master/test_data_cases_states.csv')
       district_data["district"] = district_data["district"].str.lower()
       dr = district_data.loc[district_data['district'] == district.lower()]
       if(len(dr)==0):
