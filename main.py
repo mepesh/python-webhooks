@@ -86,8 +86,7 @@ def get_country_detail():
       response = requests.get(url)
       todos = json.loads(response.text)
       data = todos['tested_total']
-      ball = "My Location Stats"
-      apple = "" 
+      
 
       response2 = "In Nepal Total Tested : "+str(todos['tested_total'])+ " among them "+str(todos["tested_negative"])+" tested negative and only "+str(todos["tested_positive"])+" tested positive  "+str(todos["in_isolation"])+" are in isolation and "+str(todos["deaths"])+" deaths. "
       print (response2)
@@ -97,9 +96,7 @@ def get_country_detail():
           "title": response2,
           "quickReplies": [
             "World Corona Data",
-            "Online Risk Assement",
-            apple,
-            ball
+            "Online Risk Assement"
           ]
         },
         "platform": "FACEBOOK"
@@ -390,7 +387,9 @@ def get_country_detail():
 
       reply = { "fulfillmentMessages": response }
       return reply
-      
+          
+
+
     def default():
       return "Incorrect Data"
 
