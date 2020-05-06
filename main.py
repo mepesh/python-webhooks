@@ -119,6 +119,72 @@ def get_country_detail():
       data1 = data[0]
       data2 = data[1]
       data3 = data[2]
+      # response1 = [{
+      #   "card":{
+      #   "title":data1['title'],
+      #   "subtitle":"Source: "+data1['source']+" >>",
+      #   "imageUri":data1['image_url'],
+      #   "buttons":[
+      #   {
+      #   "text":"Read Full Story",
+      #   "postback":data1['url']
+      #   },
+      #   {
+      #   "text":"Corona Symptoms",
+      #   "postback":"symptoms"
+      #   }
+      #   ]
+      #   },
+      #   "platform":"FACEBOOK"
+      #   },
+      #   {
+      #     "text":{"text":["Dummy text"]}
+      #   },
+      #   {
+      #   "card":{
+      #   "title":data2['title'],
+      #   "subtitle":"Source "+data2['source']+" >>",
+      #   "imageUri":data2['image_url'],
+      #   "buttons":[
+      #   {
+      #   "text":"Read Full Story",
+      #   "postback":data2['url']
+      #   },
+      #   {
+      #   "text":"Live Nepal Data",
+      #   "postback":"live-nepal-data"
+      #   }
+      #   ]
+      #   },
+      #   "platform":"FACEBOOK"
+      #   },
+      #   {
+      #     "text":{"text":["Dummy text"]}
+      #   },
+      #   {
+      #   "card":{
+      #   "title":data3['title'],
+      #   "subtitle":"Source "+data3['source']+" >>",
+      #   "imageUri":data3['image_url'],
+      #   "buttons":[
+      #   {
+      #   "text":"Read Full Story",
+      #   "postback":data3['url']
+      #   },
+      #   {
+      #   "text":"Self Isolation",
+      #   "postback":"self isolation"
+      #   }
+      #   ]
+      #   },
+      #   "platform":"FACEBOOK"
+      #   },
+      #   {
+      #     "text":{"text":["Dummy text"]}
+      #   },
+
+      # ]
+
       response2 = [{
         "card":{
         "title":data1['title'],
@@ -138,9 +204,6 @@ def get_country_detail():
         "platform":"FACEBOOK"
         },
         {
-          "text":{"text":["Dummy text"]}
-        },
-        {
         "card":{
         "title":data2['title'],
         "subtitle":"Source "+data2['source']+" >>",
@@ -157,9 +220,6 @@ def get_country_detail():
         ]
         },
         "platform":"FACEBOOK"
-        },
-        {
-          "text":{"text":["Dummy text"]}
         },
         {
         "card":{
@@ -181,7 +241,7 @@ def get_country_detail():
         },
         {
           "text":{"text":["Dummy text"]}
-        }
+        },
 
       ]
 
