@@ -383,13 +383,10 @@ def get_country_detail():
       return reply
           
     def nepal_data_new_main_int():
-      url = "https://nepalcorona.info/api/v1/data/nepal"
-      response = requests.get(url)
-      todos = json.loads(response.text)
       
       # response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
 
-      response: [{
+      response = [{
       "card":{
       "title": "Covid-19 Nepal",
       "subtitle": "Find details by Province, Municipals and Districts for Nepal",
