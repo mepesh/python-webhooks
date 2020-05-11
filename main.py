@@ -391,14 +391,14 @@ def get_country_detail():
       response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
 
       response: [
-        {
-          "text": {
-            "text": [
-              response2
-            ]
-          },
-          "platform": "FACEBOOK"
-        },
+        # {
+        #   "text": {
+        #     "text": [
+        #       response2
+        #     ]
+        #   },
+        #   "platform": "FACEBOOK"
+        # },
         {
           "card": {
             "title": "Covid-19 Nepal",
