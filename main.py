@@ -389,28 +389,27 @@ def get_country_detail():
       
       # response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
 
-      response: [
+      response: [{
+      "card":{
+      "title": "Covid-19 Nepal",
+      "subtitle": "Find details by Province, Municipals and Districts for Nepal",
+      "imageUri": "https://miro.medium.com/max/1400/1*35jjrjxz8iI5f2r8hMi8PQ.png",
+      "buttons":[
       {
-        "card":{
-        "title": "Covid-19 Nepal",
-        "subtitle": "Find details by Province, Municipals and Districts for Nepal",
-        "imageUri": "https://miro.medium.com/max/1400/1*35jjrjxz8iI5f2r8hMi8PQ.png",
-        "buttons":[
-        {
-        "text":"Self Isolation",
-        "postback":"self isolation"
-        },
-        {
-        "text":"Self Isolation",
-        "postback":"self isolation"
-        }
-        ]
-        },
-        "platform":"FACEBOOK"
-        },
-        {
-          "text":{"text":["Dummy text"]}
-        },
+      "text":"Self Isolation",
+      "postback":"self isolation"
+      },
+      {
+      "text":"Self Isolation",
+      "postback":"self isolation"
+      }
+      ]
+      },
+      "platform":"FACEBOOK"
+      },
+      {
+        "text":{"text":["Dummy text"]}
+      },
       ]
 
 
