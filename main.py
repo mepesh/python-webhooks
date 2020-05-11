@@ -401,7 +401,7 @@ def get_country_detail():
         },
         {
           "text":{"text":["Dummy text"]}
-        }
+        },
         {
           "card": {
             "title": "Covid-19 Nepal",
