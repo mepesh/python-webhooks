@@ -88,7 +88,8 @@ def get_country_detail():
       data = todos['tested_total']
       
 
-      response2 = "In Nepal Total Tested : "+str(todos['tested_total'])+ " among them "+str(todos["tested_negative"])+" tested negative and only "+str(todos["tested_positive"])+" tested positive  "+str(todos["in_isolation"])+" are in isolation and "+str(todos["deaths"])+" deaths. "
+      # response2 = "In Nepal Total Tested : "+str(todos['tested_total'])+ " among them "+str(todos["tested_negative"])+" tested negative and only "+str(todos["tested_positive"])+" tested positive  "+str(todos["in_isolation"])+" are in isolation and "+str(todos["deaths"])+" deaths. "
+      response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
       print (response2)
       response = [
       {
@@ -119,72 +120,7 @@ def get_country_detail():
       data1 = data[0]
       data2 = data[1]
       data3 = data[2]
-      # response1 = [{
-      #   "card":{
-      #   "title":data1['title'],
-      #   "subtitle":"Source: "+data1['source']+" >>",
-      #   "imageUri":data1['image_url'],
-      #   "buttons":[
-      #   {
-      #   "text":"Read Full Story",
-      #   "postback":data1['url']
-      #   },
-      #   {
-      #   "text":"Corona Symptoms",
-      #   "postback":"symptoms"
-      #   }
-      #   ]
-      #   },
-      #   "platform":"FACEBOOK"
-      #   },
-      #   {
-      #     "text":{"text":["Dummy text"]}
-      #   },
-      #   {
-      #   "card":{
-      #   "title":data2['title'],
-      #   "subtitle":"Source "+data2['source']+" >>",
-      #   "imageUri":data2['image_url'],
-      #   "buttons":[
-      #   {
-      #   "text":"Read Full Story",
-      #   "postback":data2['url']
-      #   },
-      #   {
-      #   "text":"Live Nepal Data",
-      #   "postback":"live-nepal-data"
-      #   }
-      #   ]
-      #   },
-      #   "platform":"FACEBOOK"
-      #   },
-      #   {
-      #     "text":{"text":["Dummy text"]}
-      #   },
-      #   {
-      #   "card":{
-      #   "title":data3['title'],
-      #   "subtitle":"Source "+data3['source']+" >>",
-      #   "imageUri":data3['image_url'],
-      #   "buttons":[
-      #   {
-      #   "text":"Read Full Story",
-      #   "postback":data3['url']
-      #   },
-      #   {
-      #   "text":"Self Isolation",
-      #   "postback":"self isolation"
-      #   }
-      #   ]
-      #   },
-      #   "platform":"FACEBOOK"
-      #   },
-      #   {
-      #     "text":{"text":["Dummy text"]}
-      #   },
-
-      # ]
-
+      
       response2 = [{
         "card":{
         "title":data1['title'],
@@ -448,7 +384,56 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response }
       return reply
           
+    def nepal_data_new_main_int():
+      url = "https://nepalcorona.info/api/v1/data/nepal"
+      response = requests.get(url)
+      todos = json.loads(response.text)
+      
+      response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
 
+      fulfillmentMessages: [
+        {
+          "text": {
+            "text": [
+              response2
+            ]
+          },
+          "platform": "FACEBOOK"
+        },
+        {
+          "card": {
+            "title": "Covid-19 Nepal",
+            "subtitle": "Find details by Province, Municipals and Districts for Nepal",
+            "imageUri": "https://miro.medium.com/max/1400/1*35jjrjxz8iI5f2r8hMi8PQ.png",
+            "buttons": [
+              {
+                "text": "Provience Data Nepal",
+                "postback": "provience-nepal-data"
+              },
+              {
+                "text": "District Data",
+                "postback": "district data int"
+              },
+              {
+                "text": "Vdc/Mun Data",
+                "postback": "provience-data-nepal"
+              }
+            ]
+          },
+          "platform": "FACEBOOK"
+        },
+        {
+          "text": {
+            "text": [
+              ""
+            ]
+          }
+        }
+      ]
+
+
+      reply = { "fulfillmentMessages": response }
+      return reply
 
     def default():
       return "Incorrect Data"
@@ -461,7 +446,8 @@ def get_country_detail():
     "bloodpal-need-blood-main-int - yes": blood_pal_yes,
     "data world int": world_data_live,
     "district data int": district_data_live,
-    "bloodpal-become-donor-main-int":blood_pal_donor_yes
+    "bloodpal-become-donor-main-int":blood_pal_donor_yes,
+    "nepal-data-new-main-int": nepal_data_new_main_int
     }
     
     def switch(intentname):
@@ -474,9 +460,3 @@ def get_country_detail():
 if __name__ == '__main__':
     
     app.run()
-
-      
-
-      
-      
-      
