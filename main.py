@@ -104,8 +104,7 @@ def get_country_detail():
       },
         {
           "text":{"text":["Dummy text"]}
-        }
-        
+        }        
         ]
 
       reply = { "fulfillmentMessages": response }
@@ -391,7 +390,7 @@ def get_country_detail():
       
       response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
 
-      response: [
+      response3: [
         {
           "text": {
             "text": [
@@ -400,6 +399,9 @@ def get_country_detail():
           },
           "platform": "FACEBOOK"
         },
+        {
+          "text":{"text":["Dummy text"]}
+        }
         {
           "card": {
             "title": "Covid-19 Nepal",
@@ -425,14 +427,14 @@ def get_country_detail():
         {
           "text": {
             "text": [
-              ""
+              "Dummy text"
             ]
           }
         }
       ]
 
 
-      reply = { "fulfillmentMessages": response }
+      reply = { "fulfillmentMessages": response3 }
       return reply
 
     def default():
