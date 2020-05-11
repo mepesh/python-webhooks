@@ -387,7 +387,7 @@ def get_country_detail():
       response = requests.get(url)
       todos = json.loads(response.text)
       
-      response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
+      # response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
 
       response: [
       {
@@ -396,10 +396,10 @@ def get_country_detail():
         "subtitle": "Find details by Province, Municipals and Districts for Nepal",
         "imageUri": "https://miro.medium.com/max/1400/1*35jjrjxz8iI5f2r8hMi8PQ.png",
         "buttons":[
-        # {
-        # "text":"Read Full Story",
-        # "postback":data3['url']
-        # },
+        {
+        "text":"Self Isolation",
+        "postback":"self isolation"
+        },
         {
         "text":"Self Isolation",
         "postback":"self isolation"
@@ -411,43 +411,6 @@ def get_country_detail():
         {
           "text":{"text":["Dummy text"]}
         },
-        # {
-        #   "text": {
-        #     "text": [
-        #       response2
-        #     ]
-        #   },
-        #   "platform": "FACEBOOK"
-        # },
-        # {
-        #   "card": {
-            # "title": "Covid-19 Nepal",
-            # "subtitle": "Find details by Province, Municipals and Districts for Nepal",
-            # "imageUri": "https://miro.medium.com/max/1400/1*35jjrjxz8iI5f2r8hMi8PQ.png",
-        #     "buttons": [
-        #       {
-        #         "text": "Provience Data Nepal",
-        #         "postback": "provience-nepal-data"
-        #       },
-        #       {
-        #         "text": "District Data",
-        #         "postback": "district data int"
-        #       },
-        #       {
-        #         "text": "Vdc/Mun Data",
-        #         "postback": "provience-data-nepal"
-        #       }
-        #     ]
-        #   },
-        #   "platform": "FACEBOOK"
-        # },
-        # {
-        #   "text": {
-        #     "text": [
-        #       "Dummy text"
-        #     ]
-        #   }
-        # }
       ]
 
 
