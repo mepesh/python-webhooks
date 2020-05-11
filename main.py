@@ -388,6 +388,7 @@ def get_country_detail():
       todos = json.loads(response.text)
       
       response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
+      response3 = "Tested Total: "+str(todos['tested_total'])+" Tested Positive :"+str(todos["tested_positive"])+" Recovered: "+str(todos["recovered"])+"RDT Tested: "+str(todos["tested_rdt"])+"In ISolation: "+str(todos["in_isolation"])+" Quarantined: "+str(todos["quarantined"])+" !"
 
       response = [
       {
@@ -407,17 +408,22 @@ def get_country_detail():
       },
       {
       "card":{
-      "title": "Covid-19 Nepal",
-      "subtitle": "Find details by Province, Municipals and Districts for Nepal",
+      "title": "Covid-19 Nepal | Stats",
+      "subtitle":response3,
+      # "subtitle": "Find details by Province, Municipals and Districts for Nepal",
       "imageUri": "https://miro.medium.com/max/1400/1*35jjrjxz8iI5f2r8hMi8PQ.png",
       "buttons":[
       {
-      "text":"Self Isolation",
-      "postback":"self isolation"
+      "text":"Provience Wise Data",
+      "postback":"district data int"
       },
       {
-      "text":"Self Isolation",
-      "postback":"self isolation"
+      "text":"District Wise Data",
+      "postback":"district data int"
+      },
+      {
+      "text":"Mun/Vdc  Data",
+      "postback":"district data int"
       }
       ]
       },
