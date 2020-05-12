@@ -414,7 +414,7 @@ def get_country_detail():
       todos = json.loads(response.text)
       covid_df = dss.create_covid_df()
       
-      response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
+      response2 = "Nepal Cases \n Positive :"+str(todos["tested_positive"])+" | Recovered: "+str(todos["recovered"])+"\n"
       response_summary = dss.affected_summary()
 
       response = [
@@ -441,15 +441,11 @@ def get_country_detail():
       "imageUri": "https://miro.medium.com/max/1400/1*35jjrjxz8iI5f2r8hMi8PQ.png",
       "buttons":[
       {
-      "text":"Provience Wise Data",
+      "text":"Province Wise Data",
       "postback":"province data int"
       },
       {
       "text":"District Wise Data",
-      "postback":"district data int"
-      },
-      {
-      "text":"Mun/Vdc  Data",
       "postback":"district data int"
       }
       ]
