@@ -355,7 +355,6 @@ def get_country_detail():
           "quickReplies": [
              "Nepali Stats",
              "Nepali News",
-             "World Data",
              "Preventions",
              "Corona FAQ's",
              "Corona Quiz"
@@ -367,7 +366,7 @@ def get_country_detail():
         "text":{"text":["Dummy text"]}
       }   
       ]
-      reply = { "fulfillmentText": response }
+      reply = { "fulfillmentMessages": response }
       return reply
     
     def district_data_live():
