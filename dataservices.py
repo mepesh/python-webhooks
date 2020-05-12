@@ -64,6 +64,16 @@ def provience_all_summary():
 
     return(data)
 
+def district_all_summary():
+    df = create_covid_df()
+    ld = df['title_en'].unique()
+    data = "District Affected\n"
+    for i in range(len(ld)):
+        abr = df[(df["title_en"] == ld[i]) & (df["currentstate"] == "recovered")]
+        total = df[(df["title_en"] == ld[i])]
+        data+= ""+ld[i]+": "+str(len(total))+" ("+str(len(abr))+") \n"
+        
+    print(data)
 #----end--
 def get_nepal_cumulative(country):
     death_df = pd.read_csv(

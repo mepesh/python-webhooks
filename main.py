@@ -352,25 +352,26 @@ def get_country_detail():
       return reply
     
     def district_data_live():
-      district = data['queryResult']['parameters']['district']
-      district_data= pd.read_csv('https://raw.githubusercontent.com/mepesh/python-dashboard-covid19/master/test_data_cases_states.csv')
-      district_data["district"] = district_data["district"].str.lower()
-      dr = district_data.loc[district_data['district'] == district.lower()]
-      if(len(dr)==0):
-        opt2="Search Another District"
-        response2=("No data Found for "+district+"")
-      else:
-        opt2="Nepal Data Live"
-        drl= dr.values.tolist()
-        response2 = ("In "+drl[0][0]+" district there are "+str(drl[0][3])+" CASES "+str(drl[0][4])+" in ISOLATION "+str(drl[0][5])+" DEATHS and "+str(drl[0][6])+" RECOVERED .")
+      text = dss.district_all_summary()
+      # district = data['queryResult']['parameters']['district']
+      # district_data= pd.read_csv('https://raw.githubusercontent.com/mepesh/python-dashboard-covid19/master/test_data_cases_states.csv')
+      # district_data["district"] = district_data["district"].str.lower()
+      # dr = district_data.loc[district_data['district'] == district.lower()]
+      # if(len(dr)==0):
+      #   opt2="Search Another District"
+      #   response2=("No data Found for "+district+"")
+      # else:
+      #   opt2="Nepal Data Live"
+      #   drl= dr.values.tolist()
+      #   response2 = ("In "+drl[0][0]+" district there are "+str(drl[0][3])+" CASES "+str(drl[0][4])+" in ISOLATION "+str(drl[0][5])+" DEATHS and "+str(drl[0][6])+" RECOVERED .")
       
       response = [
       {
         "quickReplies": {
-          "title": response2,
+          "title": text,
           "quickReplies": [
-            "World Corona Data",
-             opt2
+            "Provience Data",
+             "Nepali Stats"
           ]
         },
         "platform": "FACEBOOK"
