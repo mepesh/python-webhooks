@@ -82,6 +82,7 @@ def get_country_detail():
     intent = data['queryResult']['intent']['displayName']
     print (intent)
     
+    #dont need now
     def nepal_data_int():
       url = "https://nepalcorona.info/api/v1/data/nepal"
       response = requests.get(url)
@@ -110,7 +111,6 @@ def get_country_detail():
 
       reply = { "fulfillmentMessages": response }
       return reply
-
       
     def news_nepal_int():
       url = "https://nepalcorona.info/api/v1/news"
@@ -465,7 +465,7 @@ def get_country_detail():
       return "Incorrect Data"
 
     switcher = {
-    "nepal data int": nepal_data_int,
+    "nepal data int": nepal_data_new_main_int,
     "news-nepal-int": news_nepal_int,
     "i need help main int - yes": i_need_help_yes,
     "faq-que-ans-int": faq_ques_ans,
