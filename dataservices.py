@@ -46,8 +46,15 @@ def affected_summary():
 def provience_all_summary():
     mergedDf = create_covid_df()
     grouping = mergedDf.groupby(['provience','currentstate'])['currentstate'].count()
-    s = grouping.to_string()
-    return(s)
+    data =""
+    for i in range(7):
+        l = provience_ac_re(i+1)
+        data+= "Provience "+str(i+1)+" :"
+        total = l[0]+l[1]
+        data+= ""+str(total)+"("+str(l[1])+")"
+        data+="\n"    
+
+    return(data)
 
 #----end--
 def get_nepal_cumulative(country):
