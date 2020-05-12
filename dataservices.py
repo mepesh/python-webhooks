@@ -44,15 +44,23 @@ def affected_summary():
     return (text)
 
 def provience_all_summary():
-    mergedDf = create_covid_df()
-    grouping = mergedDf.groupby(['provience','currentstate'])['currentstate'].count()
-    data =""
-    for i in range(7):
-        l = provience_ac_re(i+1)
-        data+= "Provience "+str(i+1)+" :"
-        total = l[0]+l[1]
-        data+= ""+str(total)+"("+str(l[1])+")"
-        data+="\n"    
+    df = create_covid_df()
+    abr1 = df[(df["provience"] == 1) & (df["currentstate"] == "recovered")]
+    t1 = df[(df["provience"] == 1)]
+    abr2 = df[(df["provience"] == 2) & (df["currentstate"] == "recovered")]
+    t2 = df[(df["provience"] == 2)]
+    abr3 = df[(df["provience"] == 3) & (df["currentstate"] == "recovered")]
+    t3 = df[(df["provience"] == 3)]
+    abr4 = df[(df["provience"] == 4) & (df["currentstate"] == "recovered")]
+    t4 = df[(df["provience"] == 4)]
+    abr5 = df[(df["provience"] == 5) & (df["currentstate"] == "recovered")]
+    t5 = df[(df["provience"] == 5)]
+    abr6 = df[(df["provience"] == 6) & (df["currentstate"] == "recovered")]
+    t6 = df[(df["provience"] == 6)]
+    abr7 = df[(df["provience"] == 7) & (df["currentstate"] == "recovered")]
+    t7 = df[(df["provience"] == 7)]
+    
+    data ="Provience 1:"+str(len(t1))+"("+str(len(abr1))+")"+"\n"+"Provience 2:"+str(len(t2))+"("+str(len(abr2))+")"+"\n"+"Provience 3:"+str(len(t3))+"("+str(len(abr3))+")"+"\n"+"Provience 4:"+str(len(t4))+"("+str(len(abr4))+")"+"\n"+"Provience 5:"+str(len(t5))+"("+str(len(abr5))+")"+"\n"+"Provience 6:"+str(len(t6))+"("+str(len(abr6))+")"+"\n"+"Provience 7:"+str(len(t7))+"("+str(len(abr7))+")"+"\n"
 
     return(data)
 
