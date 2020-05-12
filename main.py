@@ -388,13 +388,11 @@ def get_country_detail():
       print(text)
       response = [
       {
-        "quickReplies": {
-          "title": text,
-          "quickReplies": [
-            "District Data",
-            "Municipals Data"
-          ]
-        },
+        "text": {
+        "text": [
+          text
+        ]
+      },
         "platform": "FACEBOOK"
       },
       {
