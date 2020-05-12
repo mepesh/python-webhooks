@@ -32,6 +32,7 @@ def create_covid_df():
     mergedDf = df_cov.merge(df_mun_dis, on='municipality')
     mergedDf = mergedDf[['province','district','municipality','title','type_y','title_en','gender','age','currentState']]
     mergedDf = mergedDf.rename(columns={'province': 'provience'})
+    mergedDf = mergedDf.rename(columns={'currentState': 'currentstate'})
     return(mergedDf)
 
 def affected_summary():
