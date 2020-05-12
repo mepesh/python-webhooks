@@ -74,6 +74,9 @@ def district_all_summary():
         data+= ""+ld[i]+": "+str(len(total))+" ("+str(len(abr))+") \n"
         
     print(data)
+
+    return(data)
+
 #----end--
 def get_nepal_cumulative(country):
     death_df = pd.read_csv(

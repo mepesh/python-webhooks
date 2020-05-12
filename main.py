@@ -371,7 +371,8 @@ def get_country_detail():
           "title": text,
           "quickReplies": [
             "Provience Data",
-             "Nepali Stats"
+             "Nepali Stats",
+             "Nepali News"
           ]
         },
         "platform": "FACEBOOK"
@@ -389,11 +390,14 @@ def get_country_detail():
       print(text)
       response = [
       {
-        "text": {
-        "text": [
-          text
-        ]
-      },
+        "quickReplies": {
+          "title": text,
+          "quickReplies": [
+            "District Data",
+             "Nepali Stats",
+             "Nepali News"
+          ]
+        },
         "platform": "FACEBOOK"
       },
       {
