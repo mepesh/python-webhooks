@@ -60,7 +60,7 @@ def provience_all_summary():
     abr7 = df[(df["provience"] == 7) & (df["currentstate"] == "recovered")]
     t7 = df[(df["provience"] == 7)]
     
-    data ="Provience 1:"+str(len(t1))+"("+str(len(abr1))+")"+"\n"+"Provience 2:"+str(len(t2))+"("+str(len(abr2))+")"+"\n"+"Provience 3:"+str(len(t3))+"("+str(len(abr3))+")"+"\n"+"Provience 4:"+str(len(t4))+"("+str(len(abr4))+")"+"\n"+"Provience 5:"+str(len(t5))+"("+str(len(abr5))+")"+"\n"+"Provience 6:"+str(len(t6))+"("+str(len(abr6))+")"+"\n"+"Provience 7:"+str(len(t7))+"("+str(len(abr7))+")"+"\n"
+    data ="Province 1: "+str(len(t1))+"("+str(len(abr1))+")"+"\n"+"Province 2: "+str(len(t2))+"("+str(len(abr2))+")"+"\n"+"Provience 3: "+str(len(t3))+"("+str(len(abr3))+")"+"\n"+"Provience 4: "+str(len(t4))+"("+str(len(abr4))+")"+"\n"+"Provience 5: "+str(len(t5))+"("+str(len(abr5))+")"+"\n"+"Provience 6: "+str(len(t6))+"("+str(len(abr6))+")"+"\n"+"Provience 7: "+str(len(t7))+"("+str(len(abr7))+")"+"\n"
 
     return(data)
 

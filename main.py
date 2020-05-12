@@ -347,32 +347,42 @@ def get_country_detail():
       return reply
 
     def world_data_live():
-      response = death_global()
+      data = death_global()
+      response = [
+      {
+        "quickReplies": {
+          "title": data,
+          "quickReplies": [
+             "Nepali Stats",
+             "Nepali News",
+             "World Data",
+             "Preventions",
+             "Corona FAQ's",
+             "Corona Quiz"
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+      {
+        "text":{"text":["Dummy text"]}
+      }   
+      ]
       reply = { "fulfillmentText": response }
       return reply
     
     def district_data_live():
       text = dss.district_all_summary()
-      # district = data['queryResult']['parameters']['district']
-      # district_data= pd.read_csv('https://raw.githubusercontent.com/mepesh/python-dashboard-covid19/master/test_data_cases_states.csv')
-      # district_data["district"] = district_data["district"].str.lower()
-      # dr = district_data.loc[district_data['district'] == district.lower()]
-      # if(len(dr)==0):
-      #   opt2="Search Another District"
-      #   response2=("No data Found for "+district+"")
-      # else:
-      #   opt2="Nepal Data Live"
-      #   drl= dr.values.tolist()
-      #   response2 = ("In "+drl[0][0]+" district there are "+str(drl[0][3])+" CASES "+str(drl[0][4])+" in ISOLATION "+str(drl[0][5])+" DEATHS and "+str(drl[0][6])+" RECOVERED .")
-      
       response = [
       {
         "quickReplies": {
           "title": text,
           "quickReplies": [
             "Provience Data",
-             "Nepali Stats",
-             "Nepali News"
+             "Nepali News",
+             "World Data",
+             "Symptoms",
+             "Corona FAQ's",
+             "Corona Quiz"
           ]
         },
         "platform": "FACEBOOK"
@@ -395,7 +405,11 @@ def get_country_detail():
           "quickReplies": [
             "District Data",
              "Nepali Stats",
-             "Nepali News"
+             "Nepali News",
+             "World Data",
+             "Preventions",
+             "Corona FAQ's",
+             "Corona Quiz"
           ]
         },
         "platform": "FACEBOOK"
