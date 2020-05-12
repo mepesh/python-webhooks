@@ -473,8 +473,7 @@ def get_country_detail():
     "data world int": world_data_live,
     "district data int": district_data_live,
     "province data int": province_data_live,
-    "bloodpal-become-donor-main-int":blood_pal_donor_yes,
-    "nepal-data-new-main-int": nepal_data_new_main_int
+    "bloodpal-become-donor-main-int":blood_pal_donor_yes
     }
     
     def switch(intentname):
