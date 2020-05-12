@@ -383,6 +383,28 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response }
       return reply
           
+    def province_data_live():
+      text = dss.provience_all_summary()
+      print(text)
+      response = [
+      {
+        "quickReplies": {
+          "title": text,
+          "quickReplies": [
+            "District Data",
+            "Municipals Data"
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+      {
+        "text":{"text":["Dummy text"]}
+      }   
+      ]
+
+      reply = { "fulfillmentMessages": response }
+      return reply
+
     def nepal_data_new_main_int():
       url = "https://nepalcorona.info/api/v1/data/nepal"
       response = requests.get(url)
@@ -451,6 +473,7 @@ def get_country_detail():
     "bloodpal-need-blood-main-int - yes": blood_pal_yes,
     "data world int": world_data_live,
     "district data int": district_data_live,
+    "province data int": province_data_live,
     "bloodpal-become-donor-main-int":blood_pal_donor_yes,
     "nepal-data-new-main-int": nepal_data_new_main_int
     }

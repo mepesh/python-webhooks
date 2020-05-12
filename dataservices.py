@@ -2,10 +2,7 @@ import pandas as pd
 import requests, json
 import numpy as np
 
-# fetching DF
-# loading data right from the source:
-# create covid_df
-
+#python-webhooks-fcns
 def municipal_district_df():
     url_dis = "https://data.nepalcorona.info/api/v1/districts"
     response_dis = requests.get(url_dis)
@@ -45,7 +42,13 @@ def affected_summary():
     text = str(len(p))+" Provience "+str(len(m))+" Municiapls and "+str(len(d))+" Districts Affected So Far !"
     return (text)
 
+def provience_all_summary():
+    mergedDf = create_covid_df()
+    grouping = mergedDf.groupby(['provience','currentstate'])['currentstate'].count()
+    s = grouping.to_string()
+    return(s)
 
+#----end--
 def get_nepal_cumulative(country):
     death_df = pd.read_csv(
         "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
