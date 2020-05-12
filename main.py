@@ -347,15 +347,16 @@ def get_country_detail():
       return reply
 
     def world_data_live():
-      data = death_global()
+      text = death_global()
       response = [
       {
         "quickReplies": {
-          "title": data,
+          "title": text,
           "quickReplies": [
-             "Nepali Stats",
+            "Provience Data",
              "Nepali News",
-             "Preventions",
+             "World Data",
+             "Symptoms",
              "Corona FAQ's",
              "Corona Quiz"
           ]
@@ -366,8 +367,10 @@ def get_country_detail():
         "text":{"text":["Dummy text"]}
       }   
       ]
+
       reply = { "fulfillmentMessages": response }
       return reply
+      
     
     def district_data_live():
       text = dss.district_all_summary()
