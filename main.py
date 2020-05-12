@@ -3,6 +3,7 @@ import requests, json, random
 from bs4 import BeautifulSoup
 import gspread
 import pandas as pd
+import dataservices as dss
 from oauth2client.service_account import ServiceAccountCredentials
 # page = requests.get("https://www.worldometers.info/coronavirus/")
 # soup = BeautifulSoup(page.content, 'html.parser')
@@ -386,9 +387,10 @@ def get_country_detail():
       url = "https://nepalcorona.info/api/v1/data/nepal"
       response = requests.get(url)
       todos = json.loads(response.text)
+      covid_df = dss.create_covid_df()
       
       response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
-      response3 = "Tested Total: "+str(todos['tested_total'])+" Tested Positive :"+str(todos["tested_positive"])+" Recovered: "+str(todos["recovered"])+"RDT Tested: "+str(todos["tested_rdt"])+"In ISolation: "+str(todos["in_isolation"])+" Quarantined: "+str(todos["quarantined"])+" !"
+      response_summary = dss.affected_summary()
 
       response = [
       {
@@ -409,7 +411,7 @@ def get_country_detail():
       {
       "card":{
       "title": "Covid-19 Nepal | Stats",
-      "subtitle":response3,
+      "subtitle":response_summary,
       # "subtitle": "Find details by Province, Municipals and Districts for Nepal",
       "imageUri": "https://miro.medium.com/max/1400/1*35jjrjxz8iI5f2r8hMi8PQ.png",
       "buttons":[
