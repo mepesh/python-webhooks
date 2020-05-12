@@ -439,7 +439,7 @@ def get_country_detail():
       "buttons":[
       {
       "text":"Provience Wise Data",
-      "postback":"district data int"
+      "postback":"province data int"
       },
       {
       "text":"District Wise Data",
