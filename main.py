@@ -428,8 +428,8 @@ def get_country_detail():
       url = "https://nepalcorona.info/api/v1/data/nepal"
       response = requests.get(url)
       print(response)
-      print(todos['tested_positive'])
       todos = json.loads(response.text)
+      print(todos['tested_positive'])
       covid_df = dss.create_covid_df()
 
       
