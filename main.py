@@ -427,9 +427,7 @@ def get_country_detail():
     def nepal_data_new_main_int():
       url = "https://nepalcorona.info/api/v1/data/nepal"
       response = requests.get(url)
-      print(response)
       todos = json.loads(response.text)
-      print(todos['tested_positive'])
       covid_df = dss.create_covid_df()
 
       
@@ -458,7 +456,7 @@ def get_country_detail():
       "title": "Covid-19 Nepal | Stats",
       "subtitle":response_summary,
       # "subtitle": "Find details by Province, Municipals and Districts for Nepal",
-      "imageUri": "https://miro.medium.com/max/1400/1*35jjrjxz8iI5f2r8hMi8PQ.png",
+      "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
       "buttons":[
       {
       "text":"Province Wise Data",
@@ -467,6 +465,10 @@ def get_country_detail():
       {
       "text":"District Wise Data",
       "postback":"district data int"
+      },
+      {
+      "text":"Latest Nepali News",
+      "postback":"news-nepal-int"
       }
       ]
       },
