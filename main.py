@@ -431,7 +431,7 @@ def get_country_detail():
       covid_df = dss.create_covid_df()
 
       
-      response2 = "Nepal Cases \n Positive :"+str(todos["tested_positive"])+" | Recovered: "+str(todos["recovered"])+"\n"
+      response2 = "Nepal Cases \n Positive :"+str(todos["tested_positive"])+" | Recovered: "+str(todos["recovered"])+"| Deaths:"+str(todos["deaths"])+" "+"\n"
       print(response2)
       response_summary = dss.affected_summary()
 
