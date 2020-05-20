@@ -508,7 +508,7 @@ def get_country_detail():
     "bloodpal-need-blood-main-int - yes": blood_pal_yes,
     "data world int": world_data_live,
     "district data int": district_data_live,
-    "province data int": proviencewise_detail,
+    "province data int": province_data_live,
     "bloodpal-become-donor-main-int":blood_pal_donor_yes
     }
     

@@ -124,16 +124,16 @@ def district_all_summary():
     
     # return(dat) 
 
-def ard(proviene):
-	df = create_covid_df()
-	print(df)
-	# df = create_covid_df()
-	# s = pd.get_dummies(df.currentstate)
-	# a = pd.concat([df,s],axis=1)
-    prov = a[a['provience']==proviene]
-    data = prov.sum()[['active','recovered','death']]   
-    ret = "Province "+str(proviene)+" Total: "+str(data[0]+data[1]+data[2])+" | Recovered: "+str(data[1])+" |Death: "+str(data[2])+" \n"    
-    return(ret) 
+# def ard(proviene):
+# 	df = create_covid_df()
+# 	print(df)
+# 	# df = create_covid_df()
+# 	# s = pd.get_dummies(df.currentstate)
+# 	# a = pd.concat([df,s],axis=1)
+#     prov = a[a['provience']==proviene]
+#     data = prov.sum()[['active','recovered','death']]   
+#     ret = "Province "+str(proviene)+" Total: "+str(data[0]+data[1]+data[2])+" | Recovered: "+str(data[1])+" |Death: "+str(data[2])+" \n"    
+#     return(ret) 
 #----end--
 
 def get_nepal_cumulative(country):
