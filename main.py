@@ -403,7 +403,7 @@ def get_country_detail():
       print(type(province))
       # provience = 1
       print(province)
-      response_summary = dss.ard(1)
+      response_summary = dss.ardp(1)
       print(response_summary)
 
       response = [

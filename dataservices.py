@@ -124,14 +124,15 @@ def district_all_summary():
     
     # return(dat) 
 
-def ard(proviene):
+def ardp(proviene):
 	df = create_covid_df()
 	print(df)
 	s = pd.get_dummies(df.currentstate)
 	a = pd.concat([df,s],axis=1)
-    prov = a[a['provience']==proviene]
+	prov = a[a['provience']== 1]
     data = prov.sum()[['active','recovered','death']]   
     ret = "Province "+str(proviene)+" Total: "+str(data[0]+data[1]+data[2])+" | Recovered: "+str(data[1])+" |Death: "+str(data[2])+" \n"    
+    
     return(ret) 
 #----end--
 
