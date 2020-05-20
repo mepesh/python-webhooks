@@ -44,23 +44,55 @@ def affected_summary():
     return (text)
 
 def provience_all_summary():
+    # df = create_covid_df()
+    # abr1 = df[(df["provience"] == 1) & (df["currentstate"] == "recovered")]
+    # t1 = df[(df["provience"] == 1)]
+    # abr2 = df[(df["provience"] == 2) & (df["currentstate"] == "recovered")]
+    # t2 = df[(df["provience"] == 2)]
+    # abr3 = df[(df["provience"] == 3) & (df["currentstate"] == "recovered")]
+    # t3 = df[(df["provience"] == 3)]
+    # abr4 = df[(df["provience"] == 4) & (df["currentstate"] == "recovered")]
+    # t4 = df[(df["provience"] == 4)]
+    # abr5 = df[(df["provience"] == 5) & (df["currentstate"] == "recovered")]
+    # t5 = df[(df["provience"] == 5)]
+    # abr6 = df[(df["provience"] == 6) & (df["currentstate"] == "recovered")]
+    # t6 = df[(df["provience"] == 6)]
+    # abr7 = df[(df["provience"] == 7) & (df["currentstate"] == "recovered")]
+    # t7 = df[(df["provience"] == 7)]
+    
+    # data ="Province 1: "+str(len(t1))+"("+str(len(abr1))+")"+"\n"+"Province 2: "+str(len(t2))+"("+str(len(abr2))+")"+"\n"+"Provience 3: "+str(len(t3))+"("+str(len(abr3))+")"+"\n"+"Provience 4: "+str(len(t4))+"("+str(len(abr4))+")"+"\n"+"Provience 5: "+str(len(t5))+"("+str(len(abr5))+")"+"\n"+"Provience 6: "+str(len(t6))+"("+str(len(abr6))+")"+"\n"+"Provience 7: "+str(len(t7))+"("+str(len(abr7))+")"+"\n"
+
     df = create_covid_df()
     abr1 = df[(df["provience"] == 1) & (df["currentstate"] == "recovered")]
+    abd1 = df[(df["provience"] == 1) & (df["currentstate"] == "death")]
     t1 = df[(df["provience"] == 1)]
+
     abr2 = df[(df["provience"] == 2) & (df["currentstate"] == "recovered")]
+    abd2 = df[(df["provience"] == 2) & (df["currentstate"] == "death")]
     t2 = df[(df["provience"] == 2)]
+
     abr3 = df[(df["provience"] == 3) & (df["currentstate"] == "recovered")]
+    abd3 = df[(df["provience"] == 3) & (df["currentstate"] == "death")]
     t3 = df[(df["provience"] == 3)]
+
     abr4 = df[(df["provience"] == 4) & (df["currentstate"] == "recovered")]
+    abd4 = df[(df["provience"] == 4) & (df["currentstate"] == "death")]
     t4 = df[(df["provience"] == 4)]
+
     abr5 = df[(df["provience"] == 5) & (df["currentstate"] == "recovered")]
+    abd5 = df[(df["provience"] == 5) & (df["currentstate"] == "death")]
     t5 = df[(df["provience"] == 5)]
+
     abr6 = df[(df["provience"] == 6) & (df["currentstate"] == "recovered")]
+    abd6 = df[(df["provience"] == 6) & (df["currentstate"] == "death")]
     t6 = df[(df["provience"] == 6)]
+
     abr7 = df[(df["provience"] == 7) & (df["currentstate"] == "recovered")]
+    abd7 = df[(df["provience"] == 7) & (df["currentstate"] == "death")]
     t7 = df[(df["provience"] == 7)]
     
-    data ="Province 1: "+str(len(t1))+"("+str(len(abr1))+")"+"\n"+"Province 2: "+str(len(t2))+"("+str(len(abr2))+")"+"\n"+"Provience 3: "+str(len(t3))+"("+str(len(abr3))+")"+"\n"+"Provience 4: "+str(len(t4))+"("+str(len(abr4))+")"+"\n"+"Provience 5: "+str(len(t5))+"("+str(len(abr5))+")"+"\n"+"Provience 6: "+str(len(t6))+"("+str(len(abr6))+")"+"\n"+"Provience 7: "+str(len(t7))+"("+str(len(abr7))+")"+"\n"
+    data ="Province 1: "+str(len(t1))+"("+str(len(abr1))+") - "+str(len(abd1))+""+"\n"+"Province 2: "+str(len(t2))+"("+str(len(abr2))+") - "+str(len(abd2))+""+"\n"+"Bagmati : "+str(len(t3))+"("+str(len(abr3))+") - "+str(len(abd3))+""+"\n"+"Gandaki : "+str(len(t4))+"("+str(len(abr4))+") - "+str(len(abd4))+""+"\n"+"Provience 5 : "+str(len(t5))+"("+str(len(abr5))+") - "+str(len(abd5))+""+"\n"+"Karnali : "+str(len(t6))+"("+str(len(abr6))+") - "+str(len(abd6))+""+"\n"+"SudurPaschim : "+str(len(t7))+"("+str(len(abr7))+") - "+str(len(abd7))+""+"\n"
+
 
     return(data)
 
