@@ -442,17 +442,20 @@ def get_country_detail():
     
     def dis_vdc_detail():
       pcode = data['queryResult']['parameters']['number']
+      print(pcode)
       dvdc = data['queryResult']['parameters']['custom-dis-vdc-mun-entity']
+      print(dvdc)
       provincecode = int(pcode)
+      print(provincecode)
       if(dvdc=='district'):
-        data = dss.ard(provincecode,'district')
+        data_return = dss.ard(provincecode,'district')
       else:
-        data = dss.ard(provincecode,'vdc')
+        data_return = dss.ard(provincecode,'vdc')
 
       response = [
       {
         "quickReplies": {
-          "title": data,
+          "title": data_return,
           "quickReplies": [
             "District Summary",
              "Province Summary",

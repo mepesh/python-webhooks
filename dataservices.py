@@ -25,10 +25,12 @@ def municipal_district_df():
 
 def create_covid_df():
     df_mun_dis = municipal_district_df()
+    print(df_mun_dis)
     url_cov = "https://data.nepalcorona.info/api/v1/covid"
     response_cov = requests.get(url_cov)
     total_cov = json.loads(response_cov.text)
     df_cov =pd.DataFrame(total_cov)
+    print(df_cov)
     mergedDf = df_cov.merge(df_mun_dis, on='municipality')
     mergedDf = mergedDf[['province','district','municipality','title','type_y','title_en','gender','age','currentState']]
     mergedDf = mergedDf.rename(columns={'province': 'provience'})
