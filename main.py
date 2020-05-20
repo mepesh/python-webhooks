@@ -395,49 +395,49 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response }
       return reply
 
-    def proviencewise_detail():
-      #get provience name
-      #return dss.ard(provience)
-      #card 
-      province = data['queryResult']['parameters']['province-name']
-      print(type(province))
-      # provience = 1
-      print(province)
-      response_summary = dss.ardp(1)
-      print(response_summary)
+    # def proviencewise_detail():
+    #   #get provience name
+    #   #return dss.ard(provience)
+    #   #card 
+    #   province = data['queryResult']['parameters']['province-name']
+    #   print(type(province))
+    #   # provience = 1
+    #   print(province)
+    #   response_summary = dss.ardp(1)
+    #   print(response_summary)
 
-      response = [
-      {
-      "card":{
-      "title": "Covid-19 Provience: "+str(province)+" | Details",
-      "subtitle":response_summary,
-      # "subtitle": "Find details by Province, Municipals and Districts for Nepal",
-      "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
-      "buttons":[
-      {
-      "text":"Province"+str(provience)+" District Affetected",
-      "postback":"district data int"
-      },
-      {
-      "text":"Province"+str(provience)+" VDC/Mun Affetected",
-      "postback":"district data int"
-      },
-      {
-      "text":"Latest Nepali News",
-      "postback":"news-nepal-int"
-      }
-      ]
-      },
-      "platform":"FACEBOOK"
-      },
-      {
-        "text":{"text":["Dummy text"]}
-      },
-      ]
+    #   response = [
+    #   {
+    #   "card":{
+    #   "title": "Covid-19 Provience: "+str(province)+" | Details",
+    #   "subtitle":response_summary,
+    #   # "subtitle": "Find details by Province, Municipals and Districts for Nepal",
+    #   "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
+    #   "buttons":[
+    #   {
+    #   "text":"Province"+str(provience)+" District Affetected",
+    #   "postback":"district data int"
+    #   },
+    #   {
+    #   "text":"Province"+str(provience)+" VDC/Mun Affetected",
+    #   "postback":"district data int"
+    #   },
+    #   {
+    #   "text":"Latest Nepali News",
+    #   "postback":"news-nepal-int"
+    #   }
+    #   ]
+    #   },
+    #   "platform":"FACEBOOK"
+    #   },
+    #   {
+    #     "text":{"text":["Dummy text"]}
+    #   },
+    #   ]
 
 
-      reply = { "fulfillmentMessages": response }
-      return reply
+    #   reply = { "fulfillmentMessages": response }
+    #   return reply
     
     def nepal_data_new_main_int():
       url = "https://nepalcorona.info/api/v1/data/nepal"
@@ -510,7 +510,7 @@ def get_country_detail():
     "data world int": world_data_live,
     "district data int": district_data_live,
     "province data int": province_data_live,
-    "provience-wise-data": proviencewise_detail,
+    # "provience-wise-data": proviencewise_detail,
     "bloodpal-become-donor-main-int":blood_pal_donor_yes
     }
     
