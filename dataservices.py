@@ -109,6 +109,9 @@ def district_all_summary():
     return(data)
 #new
 def ard(proviene, code):
+	df = create_covid_df()
+	s = pd.get_dummies(df.currentstate)
+	a = pd.concat([df,s],axis=1)
     prov = a[a['provience']==proviene]
     if(code == 'district'):
         dat = "Affected Districts Provience: "+str(proviene)+"\n"
