@@ -102,11 +102,10 @@ def district_all_summary():
     data = "District Affected\n"
     for i in range(len(ld)):
         abr = df[(df["title_en"] == ld[i]) & (df["currentstate"] == "recovered")]
+        abd = df[(df["title_en"] == ld[i]) & (df["currentstate"] == "death")]
         total = df[(df["title_en"] == ld[i])]
-        data+= ""+ld[i]+": "+str(len(total))+" ("+str(len(abr))+") \n"
+        data+= ""+ld[i]+": "+str(len(total))+" ("+str(len(abr))+") - "+str(len(abd))+" \n"
         
-    print(data)
-
     return(data)
 
 #----end--
