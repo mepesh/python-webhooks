@@ -112,6 +112,7 @@ def district_all_summary():
 #new
 def ard(proviene, code):
     df = create_covid_df()
+    print(code)
     s = pd.get_dummies(df.currentstate)
     a = pd.concat([df,s],axis=1)
     prov = a[a['provience']==proviene]
@@ -131,7 +132,6 @@ def ard(proviene, code):
 def ardp(pnum):
     df = create_covid_df()
     province = pnum
-    # print(type(province))
     s = pd.get_dummies(df.currentstate)
     a = pd.concat([df,s],axis=1)
     prov = a[a['provience']== province]
