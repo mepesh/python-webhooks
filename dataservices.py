@@ -126,8 +126,9 @@ def ard(proviene, code):
     
     return dat
 
-def ardp(province):
+def ardp(pnum):
     df = create_covid_df()
+    # province = int(pnum)
     print(type(province))
     s = pd.get_dummies(df.currentstate)
     a = pd.concat([df,s],axis=1)

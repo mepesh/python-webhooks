@@ -399,7 +399,8 @@ def get_country_detail():
       #get provience name
       #return dss.ard(provience)
       #card 
-      province = data['queryResult']['parameters']['province-name']
+      pcode = data['queryResult']['parameters']['province-name']
+      province = int(pcode)
       print(type(province))
       # provience = 1
       print(province)
@@ -415,11 +416,11 @@ def get_country_detail():
       "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
       "buttons":[
       {
-      "text":"Province"+str(provience)+" District Affetected",
+      "text":"Province"+str(province)+" District Affetected",
       "postback":"district data int"
       },
       {
-      "text":"Province"+str(provience)+" VDC/Mun Affetected",
+      "text":"Province"+str(province)+" VDC/Mun Affetected",
       "postback":"district data int"
       },
       {
