@@ -420,7 +420,7 @@ def get_country_detail():
       "postback":"dis-vdc data detail int"
       },
       {
-      "text":""+str(province)+". VDC/Mun Affetected",
+      "text":""+str(province)+". VDC-Mun Affetected",
       "postback":"dis-vdc data detail int"
       },
       {
@@ -442,11 +442,8 @@ def get_country_detail():
     
     def dis_vdc_detail():
       pcode = data['queryResult']['parameters']['number']
-      print(pcode)
       dvdc = data['queryResult']['parameters']['custom-dis-vdc-mun-entity']
-      print(dvdc)
       provincecode = int(pcode)
-      print(provincecode)
       if(dvdc=='district'):
         data_return = dss.ard(provincecode,'district')
       else:
@@ -547,7 +544,7 @@ def get_country_detail():
     "data world int": world_data_live,
     "district data int": district_data_live,
     "province data int": province_data_live,
-    "provience-wise-data": proviencewise_detail,
+    "province-wise-data": proviencewise_detail,
     "dis-vdc data detail int": dis_vdc_detail,
     "bloodpal-become-donor-main-int":blood_pal_donor_yes
     }
