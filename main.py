@@ -400,9 +400,10 @@ def get_country_detail():
       #return dss.ard(provience)
       #card 
       province = data['queryResult']['parameters']['province-name']
+      print(type(province))
       # provience = 1
       print(province)
-      response_summary = dss.ard(province)
+      response_summary = dss.ard(1)
       print(response_summary)
 
       response = [
@@ -509,6 +510,7 @@ def get_country_detail():
     "data world int": world_data_live,
     "district data int": district_data_live,
     "province data int": province_data_live,
+    "provience-wise-data": proviencewise_detail,
     "bloodpal-become-donor-main-int":blood_pal_donor_yes
     }
     
