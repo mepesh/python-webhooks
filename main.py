@@ -81,36 +81,6 @@ def get_country_detail():
     data = request.get_json(silent=True)
     intent = data['queryResult']['intent']['displayName']
     print (intent)
-    
-    #dont need now
-    def nepal_data_int():
-      url = "https://nepalcorona.info/api/v1/data/nepal"
-      response = requests.get(url)
-      todos = json.loads(response.text)
-      data = todos['tested_total']
-      
-
-      # response2 = "In Nepal Total Tested : "+str(todos['tested_total'])+ " among them "+str(todos["tested_negative"])+" tested negative and only "+str(todos["tested_positive"])+" tested positive  "+str(todos["in_isolation"])+" are in isolation and "+str(todos["deaths"])+" deaths. "
-      response2 = "In Nepal \n Tested Total: "+str(todos['tested_total'])+" \n Tested Positive :"+str(todos["tested_positive"])+" \n Recovered: "+str(todos["recovered"])+"\n"+"RDT Tested: "+str(todos["tested_rdt"])+"\n In ISolation: "+str(todos["in_isolation"])+"\n Quarantined: "+str(todos["quarantined"])+"\n"
-      print (response2)
-      response = [
-      {
-        "quickReplies": {
-          "title": response2,
-          "quickReplies": [
-            "World Corona Data",
-            "Online Risk Assement"
-          ]
-        },
-        "platform": "FACEBOOK"
-      },
-        {
-          "text":{"text":["Dummy text"]}
-        }        
-        ]
-
-      reply = { "fulfillmentMessages": response }
-      return reply
       
     def news_nepal_int():
       url = "https://nepalcorona.info/api/v1/news"
@@ -396,7 +366,8 @@ def get_country_detail():
 
       reply = { "fulfillmentMessages": response }
       return reply
-          
+    
+    #provience summary should remove      
     def province_data_live():
       text = dss.provience_all_summary()
       print(text)
@@ -424,6 +395,52 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response }
       return reply
 
+    def proviencewise_detail():
+      #get provience name
+      #return dss.ard(provience)
+      #card 
+      province = data['queryResult']['parameters']['province-name']
+      # provience = 1
+      print(province)
+      response_summary = dss.ard(province)
+      print(response_summary)
+
+      response = [
+      {
+      "card":{
+      "title": "Covid-19 Provience: "+str(province)+" | Details",
+      "subtitle":response_summary,
+      # "subtitle": "Find details by Province, Municipals and Districts for Nepal",
+      "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
+      "buttons":[
+      {
+      "text":"Province"+str(provience)+" District Affetected",
+      "postback":"district data int"
+      },
+      {
+      "text":"Province"+str(provience)+" VDC/Mun Affetected",
+      "postback":"district data int"
+      },
+      {
+      "text":"Latest Nepali News",
+      "postback":"news-nepal-int"
+      }
+      ]
+      },
+      "platform":"FACEBOOK"
+      },
+      {
+        "text":{"text":["Dummy text"]}
+      },
+      ]
+
+
+      reply = { "fulfillmentMessages": response }
+      return reply
+
+    # def provience_district_mun():
+    #   dss.arc(code,'district')
+    
     def nepal_data_new_main_int():
       url = "https://nepalcorona.info/api/v1/data/nepal"
       response = requests.get(url)
@@ -494,7 +511,7 @@ def get_country_detail():
     "bloodpal-need-blood-main-int - yes": blood_pal_yes,
     "data world int": world_data_live,
     "district data int": district_data_live,
-    "province data int": province_data_live,
+    "province data int": proviencewise_detail,
     "bloodpal-become-donor-main-int":blood_pal_donor_yes
     }
     

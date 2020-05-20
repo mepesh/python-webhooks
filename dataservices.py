@@ -107,8 +107,30 @@ def district_all_summary():
         data+= ""+ld[i]+": "+str(len(total))+" ("+str(len(abr))+") - "+str(len(abd))+" \n"
         
     return(data)
+#new
+def ard(proviene, code):
+    prov = a[a['provience']==proviene]
+    if(code == 'district'):
+        dat = "Affected Districts Provience: "+str(proviene)+"\n"
+        data = prov.groupby('title_en').sum()[['active','recovered','death']]
+    else:
+        dat = "Affected VDC/MUN Provience: "+str(proviene)+"\n"
+        data = prov.groupby('title').sum()[['active','recovered','death']]
+        
+    print(data)
+    for index, row in data.iterrows():
+        total = row['active']+row['recovered']+row['death']
+        dat+=""+str(index)+" "+str(total)+" ("+str(row['recovered'])+") - "+str(row['death'])+"\n"    
+    
+    return(dat) 
 
+def ard(proviene):
+    prov = a[a['provience']==proviene]
+    data = prov.sum()[['active','recovered','death']]   
+    ret = "Province "+str(proviene)+" Total: "+str(data[0]+data[1]+data[2])+" | Recovered: "+str(data[1])+" |Death: "+str(data[2])+" \n"    
+    return(ret) 
 #----end--
+
 def get_nepal_cumulative(country):
     death_df = pd.read_csv(
         "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
