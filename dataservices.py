@@ -108,33 +108,34 @@ def district_all_summary():
         
     return(data)
 #new
-# def ard(proviene, code):
-    # prov = a[a['provience']==proviene]
-    # if(code == 'district'):
-    #     dat = "Affected Districts Provience: "+str(proviene)+"\n"
-    #     data = prov.groupby('title_en').sum()[['active','recovered','death']]
-    # else:
-    #     dat = "Affected VDC/MUN Provience: "+str(proviene)+"\n"
-    #     data = prov.groupby('title').sum()[['active','recovered','death']]
+def ard(proviene, code):
+    df = create_covid_df()
+    s = pd.get_dummies(df.currentstate)
+    a = pd.concat([df,s],axis=1)
+    prov = a[a['provience']==proviene]
+    if(code == 'district'):
+        dat = "Affected Districts Provience: "+str(proviene)+"\n"
+        data = prov.groupby('title_en').sum()[['active','recovered','death']]
+    else:
+        dat = "Affected VDC/MUN Provience: "+str(proviene)+"\n"
+        data = prov.groupby('title').sum()[['active','recovered','death']]
         
-    # print(data)
-    # for index, row in data.iterrows():
-    #     total = row['active']+row['recovered']+row['death']
-    #     dat+=""+str(index)+" "+str(total)+" ("+str(row['recovered'])+") - "+str(row['death'])+"\n"    
+    for index, row in data.iterrows():
+        total = row['active']+row['recovered']+row['death']
+        dat+=""+str(index)+" "+str(total)+" ("+str(row['recovered'])+") - "+str(row['death'])+"\n"    
     
-    # return(dat) 
+    return dat
 
-# def ardp(proviene):
-# 	df = create_covid_df()
-# 	print(df)
-# 	s = pd.get_dummies(df.currentstate)
-# 	a = pd.concat([df,s],axis=1)
-# 	prov = a[a['provience']== 1]
-#     data = prov.sum()[['active','recovered','death']]   
-#     ret = "Province "+str(proviene)+" Total: "+str(data[0]+data[1]+data[2])+" | Recovered: "+str(data[1])+" |Death: "+str(data[2])+" \n"    
-    
-#     return(ret) 
-#----end--
+def ardp(province):
+    df = create_covid_df()
+    print(type(province))
+    s = pd.get_dummies(df.currentstate)
+    a = pd.concat([df,s],axis=1)
+    prov = a[a['provience']== province]
+    data = prov.sum()[['active','recovered','death']]
+    ret = "Province "+str(province)+" Total: "+str(data[0]+data[1]+data[2])+" | Recovered: "+str(data[1])+" |Death: "+str(data[2])+" \n"
+
+    return (ret)
 
 def get_nepal_cumulative(country):
     death_df = pd.read_csv(
