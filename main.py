@@ -341,7 +341,7 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response }
       return reply
       
-    
+    #district summary all
     def district_data_live():
       text = dss.district_all_summary()
       response = [
@@ -367,7 +367,7 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response }
       return reply
     
-    #provience summary should remove      
+    #provience summary all should remove      
     def province_data_live():
       text = dss.provience_all_summary()
       print(text)
@@ -416,12 +416,12 @@ def get_country_detail():
       "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
       "buttons":[
       {
-      "text":"Province"+str(province)+" District Affetected",
-      "postback":"district data int"
+      "text":""+str(province)+". District Affetected",
+      "postback":"dis-vdc data detail int"
       },
       {
-      "text":"Province"+str(province)+" VDC/Mun Affetected",
-      "postback":"district data int"
+      "text":""+str(province)+". VDC/Mun Affetected",
+      "postback":"dis-vdc data detail int"
       },
       {
       "text":"Latest Nepali News",
@@ -440,6 +440,39 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response }
       return reply
     
+    def dis_vdc_detail():
+      pcode = data['queryResult']['parameters']['number']
+      dvdc = data['queryResult']['parameters']['custom-dis-vdc-mun-entity']
+      provincecode = int(pcode)
+      if(dvdc=='district'):
+        data = dss.ard(provincecode,'district')
+      else:
+        data = dss.ard(provincecode,'vdc')
+
+      response = [
+      {
+        "quickReplies": {
+          "title": data,
+          "quickReplies": [
+            "District Summary",
+             "Province Summary",
+             "Nepali News",
+             "World Data",
+             "Preventions",
+             "Corona FAQ's",
+             "Corona Quiz"
+          ]
+        },
+        "platform": "FACEBOOK"
+      },
+      {
+        "text":{"text":["Dummy text"]}
+      }   
+      ]
+
+      reply = { "fulfillmentMessages": response }
+      return reply
+
     def nepal_data_new_main_int():
       url = "https://nepalcorona.info/api/v1/data/nepal"
       response = requests.get(url)
@@ -512,6 +545,7 @@ def get_country_detail():
     "district data int": district_data_live,
     "province data int": province_data_live,
     "provience-wise-data": proviencewise_detail,
+    "dis-vdc data detail int": dis_vdc_detail,
     "bloodpal-become-donor-main-int":blood_pal_donor_yes
     }
     
