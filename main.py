@@ -437,9 +437,6 @@ def get_country_detail():
 
       reply = { "fulfillmentMessages": response }
       return reply
-
-    # def provience_district_mun():
-    #   dss.arc(code,'district')
     
     def nepal_data_new_main_int():
       url = "https://nepalcorona.info/api/v1/data/nepal"
