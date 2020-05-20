@@ -108,24 +108,21 @@ def district_all_summary():
         
     return(data)
 #new
-def ard(proviene, code):
-	df = create_covid_df()
-	s = pd.get_dummies(df.currentstate)
-	a = pd.concat([df,s],axis=1)
-    prov = a[a['provience']==proviene]
-    if(code == 'district'):
-        dat = "Affected Districts Provience: "+str(proviene)+"\n"
-        data = prov.groupby('title_en').sum()[['active','recovered','death']]
-    else:
-        dat = "Affected VDC/MUN Provience: "+str(proviene)+"\n"
-        data = prov.groupby('title').sum()[['active','recovered','death']]
+# def ard(proviene, code):
+    # prov = a[a['provience']==proviene]
+    # if(code == 'district'):
+    #     dat = "Affected Districts Provience: "+str(proviene)+"\n"
+    #     data = prov.groupby('title_en').sum()[['active','recovered','death']]
+    # else:
+    #     dat = "Affected VDC/MUN Provience: "+str(proviene)+"\n"
+    #     data = prov.groupby('title').sum()[['active','recovered','death']]
         
-    print(data)
-    for index, row in data.iterrows():
-        total = row['active']+row['recovered']+row['death']
-        dat+=""+str(index)+" "+str(total)+" ("+str(row['recovered'])+") - "+str(row['death'])+"\n"    
+    # print(data)
+    # for index, row in data.iterrows():
+    #     total = row['active']+row['recovered']+row['death']
+    #     dat+=""+str(index)+" "+str(total)+" ("+str(row['recovered'])+") - "+str(row['death'])+"\n"    
     
-    return(dat) 
+    # return(dat) 
 
 def ard(proviene):
 	df = create_covid_df()
