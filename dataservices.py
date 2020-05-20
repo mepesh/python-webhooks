@@ -114,7 +114,7 @@ def ard(proviene, code):
     s = pd.get_dummies(df.currentstate)
     a = pd.concat([df,s],axis=1)
     prov = a[a['provience']==proviene]
-    if(code == 'district'):
+    if(code == "district"):
         dat = "Affected Districts Provience: "+str(proviene)+"\n"
         data = prov.groupby('title_en').sum()[['active','recovered','death']]
     else:
