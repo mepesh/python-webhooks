@@ -413,11 +413,11 @@ def get_country_detail():
       "imageUri": "https://setopati.net/wp-content/uploads/2018/02/province6.jpg",
       "buttons":[
       {
-      "text":"Prov "+str(province)+" District Data",
+      "text":" District Data",
       "postback":"dis-vdc data detail int"
       },
       {
-      "text":"Prov "+str(province)+" VDC-Mun Data",
+      "text":"Vdc Municipals Data",
       "postback":"dis-vdc data detail int"
       },
       {
