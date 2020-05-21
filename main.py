@@ -443,16 +443,16 @@ def get_country_detail():
     def dis_vdc_detail():
       pcode = data['queryResult']['parameters']['number']
       print(pcode)
-      print(type(pcode))
+      code = int(pcode)
       dvdc = data['queryResult']['parameters']['custom-dis-vdc-mun-entity']
       print(dvdc)
       # provincecode = pcode
       if(dvdc=="district"):
-        type = "district"    
+        typ = "district"    
       else:
-        type = "vdc"
+        typ = "vdc"
 
-      data_return = dss.ard(code,type)
+      data_return = dss.ard(code,typ)
       response = [
       {
         "quickReplies": {
