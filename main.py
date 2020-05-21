@@ -376,8 +376,8 @@ def get_country_detail():
         "quickReplies": {
           "title": text,
           "quickReplies": [
-             "District Summary",
-             "Nepali News",
+             "District-Summary",
+             "Province-Data",
              "World Data",
              "Preventions",
              "Corona FAQ's",
@@ -518,7 +518,7 @@ def get_country_detail():
       "postback":"province data int"
       },
       {
-      "text":"District Summary",
+      "text":"District-Summary",
       "postback":"district data int"
       },
       {
