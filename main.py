@@ -438,21 +438,21 @@ def get_country_detail():
       return reply
     
     def dis_vdc_detail():
-      code = data['queryResult']['parameters']['number-integer']
+      code = data['queryResult']['parameters']['custom-province-ent']
       dvdc = data['queryResult']['parameters']['custom-dis-vdc-mun-entity']
       
       print(type(dvdc))
-      print(dvdc[0])
+      print(dvdc)
       print(type(code))
 
 
       # provincecode = pcode
-      if(dvdc[0]=="district"):
+      if(dvdc=="district"):
         typ = "district"    
       else:
         typ = "vdc"
 
-      data_return = dss.ard(code[0],typ)
+      data_return = dss.ard(code,typ)
       response = [
       {
         "quickReplies": {
