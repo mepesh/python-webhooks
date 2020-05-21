@@ -110,7 +110,6 @@ def district_all_summary():
 #new
 def ard(proviene, code):
     df = create_covid_df()
-    print(code)
     s = pd.get_dummies(df.currentstate)
     a = pd.concat([df,s],axis=1)
     prov = a[a['provience']==proviene]
