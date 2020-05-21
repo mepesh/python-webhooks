@@ -416,7 +416,7 @@ def get_country_detail():
       "postback":"dis-vdc data detail int"
       },
       {
-      "text":"Prov "+str(province)+"Vdc Municipals Data",
+      "text":"Prov "+str(province)+"Vdc-Mun Data",
       "postback":"dis-vdc data detail int"
       },
       {
