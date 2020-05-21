@@ -413,11 +413,11 @@ def get_country_detail():
       "imageUri": "https://setopati.net/wp-content/uploads/2018/02/province6.jpg",
       "buttons":[
       {
-      "text":" District Data",
+      "text":"Prov "+str(province)+" District Data",
       "postback":"dis-vdc data detail int"
       },
       {
-      "text":"Vdc Municipals Data",
+      "text":"Prov "+str(province)+"Vdc Municipals Data",
       "postback":"dis-vdc data detail int"
       },
       {
@@ -448,10 +448,12 @@ def get_country_detail():
 
 
       # provincecode = pcode
-      if(dvdc=="district"):
-        typ = "district"    
+      if(dvdc=="vdc"):
+        print('inside vdc')
+        typ = "vdc"    
       else:
-        typ = "vdc"
+        print('inside district')
+        typ = "district"
 
       data_return = dss.ard(code,typ)
       response = [
