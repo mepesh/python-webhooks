@@ -475,7 +475,6 @@ def get_country_detail():
       }   
       ]
 
-      print(code[0])
       reply = { "fulfillmentMessages": response }
       return reply
 
