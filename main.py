@@ -438,11 +438,12 @@ def get_country_detail():
       return reply
     
     def dis_vdc_detail():
-      code = data['queryResult']['parameters']['custom-province-ent']
+      cod = data['queryResult']['parameters']['custom-province-ent']
       dvdc = data['queryResult']['parameters']['custom-dis-vdc-mun-entity']
       
       print(type(dvdc))
       print(dvdc)
+      code = int(cod)
       print(type(code))
 
 
