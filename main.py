@@ -416,7 +416,7 @@ def get_country_detail():
       "postback":"dis-vdc data detail int"
       },
       {
-      "text":"Prov "+str(province)+"Vdc-Mun Data",
+      "text":"Prov "+str(province)+" Vdc-Mun Data",
       "postback":"dis-vdc data detail int"
       },
       {
@@ -522,8 +522,8 @@ def get_country_detail():
       "postback":"district data int"
       },
       {
-      "text":"Province Wise Data",
-      "postback":"province-wise-data"
+      "text":"Latest Nepali News",
+      "postback":"news-nepal-int"
       }
       ]
       },
