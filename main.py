@@ -402,8 +402,6 @@ def get_country_detail():
       pcode = data['queryResult']['parameters']['province-name']
       province = int(pcode)
       print(type(province))
-      # provience = 1
-      print(province)
       response_summary = dss.ardp(province)
       print(response_summary)
 
@@ -412,15 +410,14 @@ def get_country_detail():
       "card":{
       "title": "Covid-19 Provience: "+str(province)+" | Details",
       "subtitle":response_summary,
-      # "subtitle": "Find details by Province, Municipals and Districts for Nepal",
       "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
       "buttons":[
       {
-      "text":""+str(province)+". District Affected",
+      "text":"Province:"+str(province)+" District Data",
       "postback":"dis-vdc data detail int"
       },
       {
-      "text":""+str(province)+". VDC-Mun Affected",
+      "text":"Province:"+str(province)+" VDC-Mun Data",
       "postback":"dis-vdc data detail int"
       },
       {
@@ -441,9 +438,7 @@ def get_country_detail():
       return reply
     
     def dis_vdc_detail():
-      pcode = data['queryResult']['parameters']['number']
-      print(pcode)
-      code = int(pcode)
+      code = data['queryResult']['parameters']['number-integer']
       dvdc = data['queryResult']['parameters']['custom-dis-vdc-mun-entity']
       print(dvdc)
       # provincecode = pcode
