@@ -416,11 +416,11 @@ def get_country_detail():
       "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
       "buttons":[
       {
-      "text":""+str(province)+". District Affetected",
+      "text":""+str(province)+". District Affected",
       "postback":"dis-vdc data detail int"
       },
       {
-      "text":""+str(province)+". VDC-Mun Affetected",
+      "text":""+str(province)+". VDC-Mun Affected",
       "postback":"dis-vdc data detail int"
       },
       {
