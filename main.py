@@ -342,14 +342,14 @@ def get_country_detail():
       return reply
       
     #district summary all
-    def district_data_live():
+    def district_all_summary():
       text = dss.district_all_summary()
       response = [
       {
         "quickReplies": {
           "title": text,
           "quickReplies": [
-            "Provience Data",
+            "ProvienceWise Data",
              "Nepali News",
              "World Data",
              "Symptoms",
@@ -368,7 +368,7 @@ def get_country_detail():
       return reply
     
     #provience summary all should remove      
-    def province_data_live():
+    def province_all_summary():
       text = dss.provience_all_summary()
       print(text)
       response = [
@@ -376,8 +376,8 @@ def get_country_detail():
         "quickReplies": {
           "title": text,
           "quickReplies": [
-            "District Data",
-             "Nepali Stats",
+            "ProvienceWise Data",
+             "District Summary",
              "Nepali News",
              "World Data",
              "Preventions",
@@ -410,14 +410,14 @@ def get_country_detail():
       "card":{
       "title": "Covid-19 Provience: "+str(province)+" | Details",
       "subtitle":response_summary,
-      "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
+      "imageUri": "https://setopati.net/wp-content/uploads/2018/02/province6.jpg",
       "buttons":[
       {
-      "text":"Prov:"+str(province)+" District Data",
+      "text":"Prov: "+str(province)+" District Data",
       "postback":"dis-vdc data detail int"
       },
       {
-      "text":"Prov:"+str(province)+" VDC-Mun Data",
+      "text":"Prov: "+str(province)+" VDC-Mun Data",
       "postback":"dis-vdc data detail int"
       },
       {
@@ -507,16 +507,16 @@ def get_country_detail():
       "imageUri": "https://stock.rtl.lu/rtl/800/rtl2008.lu/nt/p/2020/04/09/16/fdfbf19dc86cb2ef05908e9e83885f97.png",
       "buttons":[
       {
-      "text":"Province Wise Data",
+      "text":"Province Summary",
       "postback":"province data int"
       },
       {
-      "text":"District Wise Data",
+      "text":"District Summary",
       "postback":"district data int"
       },
       {
-      "text":"Latest Nepali News",
-      "postback":"news-nepal-int"
+      "text":"Province Wise Data",
+      "postback":"province-wise-data"
       }
       ]
       },
@@ -541,8 +541,8 @@ def get_country_detail():
     "faq-que-ans-int": faq_ques_ans,
     "bloodpal-need-blood-main-int - yes": blood_pal_yes,
     "data world int": world_data_live,
-    "district data int": district_data_live,
-    "province data int": province_data_live,
+    "district data int": district_all_summary,
+    "province data int": province_all_summary,
     "province-wise-data": proviencewise_detail,
     "dis-vdc data detail int": dis_vdc_detail,
     "bloodpal-become-donor-main-int":blood_pal_donor_yes
