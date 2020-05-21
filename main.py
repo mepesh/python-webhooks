@@ -349,7 +349,7 @@ def get_country_detail():
         "quickReplies": {
           "title": text,
           "quickReplies": [
-            "ProvienceWise Data",
+            "Provience Summary",
              "Nepali News",
              "World Data",
              "Symptoms",
@@ -376,7 +376,6 @@ def get_country_detail():
         "quickReplies": {
           "title": text,
           "quickReplies": [
-            "ProvienceWise Data",
              "District Summary",
              "Nepali News",
              "World Data",
@@ -399,7 +398,7 @@ def get_country_detail():
       #get provience name
       #return dss.ard(provience)
       #card 
-      pcode = data['queryResult']['parameters']['province-name']
+      pcode = data['queryResult']['parameters']['custom-province-ent']
       province = int(pcode)
       print(type(province))
       response_summary = dss.ardp(province)
