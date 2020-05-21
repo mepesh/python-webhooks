@@ -441,6 +441,8 @@ def get_country_detail():
       code = data['queryResult']['parameters']['number-integer']
       dvdc = data['queryResult']['parameters']['custom-dis-vdc-mun-entity']
       print(dvdc)
+      print(type(dvdc))
+
       # provincecode = pcode
       if(dvdc=="district"):
         typ = "district"    

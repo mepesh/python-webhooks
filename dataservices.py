@@ -108,16 +108,16 @@ def district_all_summary():
         
     return(data)
 #new
-def ard(proviene, code):
+def ard(code, typ):
     df = create_covid_df()
     s = pd.get_dummies(df.currentstate)
     a = pd.concat([df,s],axis=1)
-    prov = a[a['provience']==proviene]
-    if(code == "district"):
-        dat = "Affected Districts Provience: "+str(proviene)+"\n"
+    prov = a[a['provience']==code]
+    if(typ == "district"):
+        dat = "Affected Districts Provience: "+str(code)+"\n"
         data = prov.groupby('title_en').sum()[['active','recovered','death']]
     else:
-        dat = "Affected VDC/MUN Provience: "+str(proviene)+"\n"
+        dat = "Affected VDC/MUN Provience: "+str(code)+"\n"
         data = prov.groupby('title').sum()[['active','recovered','death']]
         
     for index, row in data.iterrows():
