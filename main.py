@@ -542,14 +542,14 @@ def get_country_detail():
       url = "https://api.thingspeak.com/channels/1095294/fields/1.json?api_key=U0AR6L9OIISHK7RZ&results=1&fbclid=IwAR1vlCZe6tEMvkEUYcTdUPw3F8OUM6P4RRSZScAyni1u_pDGi6KxHvURawM"
       response = requests.get(url)
       todos = json.loads(response.text)
-      feeds = todos["feeds"]
+      feeds = todos["feeds"][0]
       channel = todos["channel"]
       print(channel)
       print(feeds)
       print(type(feeds))
+      print(feeds["created_at"])
       
-      
-      response2 = "Batti Status Now :"+str(channel["field1"])+"!\n Last Updated"+str(feeds[0])
+      response2 = "Batti Status Now :"+str(channel["field1"])
       print(response2)
       reply = { "fulfillmentMessages": response2 }
       return reply
