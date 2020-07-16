@@ -543,13 +543,8 @@ def get_country_detail():
       response = requests.get(url)
       todos = json.loads(response.text)
       feeds = todos["feeds"][0]
-      channel = todos["channel"]
-      print(channel)
-      print(feeds)
-      print(type(feeds))
-      print(feeds["created_at"])
       
-      response2 = "Batti Status Now :"+str(channel["field1"]+"\n Last Updated: "+str(feeds["created_at"]))
+      response2 = "Batti Status Now :"+str(feeds["field1"]+"\n Last Updated: "+str(feeds["created_at"]))
       print(response2)
       reply = { "fulfillmentText": response2 }
       return reply
