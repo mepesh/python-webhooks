@@ -538,6 +538,23 @@ def get_country_detail():
       reply = { "fulfillmentMessages": response }
       return reply
 
+    def batti_update():
+      url = "https://api.thingspeak.com/channels/1095294/fields/1.json?api_key=U0AR6L9OIISHK7RZ&results=1&fbclid=IwAR1vlCZe6tEMvkEUYcTdUPw3F8OUM6P4RRSZScAyni1u_pDGi6KxHvURawM"
+      response = requests.get(url)
+      todos = json.loads(response.text)
+      feeds = todos["feeds"]
+      channel = todos["channel"]
+      print(channel)
+      print(feeds)
+      print(type(feeds))
+      
+      
+      response2 = "Batti Status Now :"+str(channel["field1"])+"!"
+      print(response2)
+      reply = { "fulfillmentText": response2 }    
+      return jsonify(reply)
+
+
     def default():
       return "Incorrect Data"
 
@@ -552,7 +569,8 @@ def get_country_detail():
     "province data int": province_all_summary,
     "province-wise-data": proviencewise_detail,
     "dis-vdc data detail int": dis_vdc_detail,
-    "bloodpal-become-donor-main-int":blood_pal_donor_yes
+    "bloodpal-become-donor-main-int":blood_pal_donor_yes,
+    "batti-intent":batti_update
     }
     
     def switch(intentname):
