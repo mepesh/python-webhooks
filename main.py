@@ -549,9 +549,9 @@ def get_country_detail():
       print(type(feeds))
       print(feeds["created_at"])
       
-      response2 = "Batti Status Now :"+str(channel["field1"])
+      response2 = "Batti Status Now :"+str(channel["field1"]+"\n Last Updated: "+str(feeds["created_at"]))
       print(response2)
-      reply = { "fulfillmentMessages": response2 }
+      reply = { "fulfillmentText": response2 }
       return reply
 
 
