@@ -570,7 +570,7 @@ def get_country_detail():
     "province-wise-data": proviencewise_detail,
     "dis-vdc data detail int": dis_vdc_detail,
     "bloodpal-become-donor-main-int":blood_pal_donor_yes,
-    "batti-intent":batti_update
+    "batti-update-intent":batti_update
     }
     
     def switch(intentname):
