@@ -1,7 +1,7 @@
 Flask==1.1.1
 gunicorn==20.0.4
 beautifulsoup4==4.8.0
-requests==2.22.0
+requests==2.31.0
 gspread==3.3.0
 oauth2client==4.1.3
 pandas==0.25.1
